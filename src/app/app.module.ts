@@ -3,12 +3,12 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardComponent } from './board/board.component';
-import { CellComponent } from './board/cell/cell.component';
-import { GameStatusComponent } from './game-status/game-status.component';
-import { GameOptionsComponent } from './game-options/game-options.component';
-import { ModeComponent } from './game-options/mode/mode.component';
-import { DifficultyComponent } from './game-options/difficulty/difficulty.component';
+import { BoardComponent } from './main-page/board/board.component';
+import { CellComponent } from './main-page/board/cell/cell.component';
+import { GameStatusComponent } from './main-page/game-status/game-status.component';
+import { GameOptionsComponent } from './main-page/game-options/game-options.component';
+import { ModeComponent } from './main-page/game-options/mode/mode.component';
+import { DifficultyComponent } from './main-page/game-options/difficulty/difficulty.component';
 import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({

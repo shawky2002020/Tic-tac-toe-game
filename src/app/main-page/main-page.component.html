@@ -1,1 +1,23 @@
-<p>main-page works!</p>
+  
+  <div class="page">
+
+   <div class="page-container">
+    
+    <h1 >Tic Tac Toe Game</h1>
+
+  <img src="xo 1.jpg" alt="Image loading">
+</div> 
+
+    <div class="start_btn" *ngIf="bool ; else elseBlock "   (click)="bool=!bool;" >
+       <button >Start</button>
+      </div>
+    <ng-template #elseBlock>
+      <div class="start_btn">
+       <button>Difficulty</button> 
+      </div>
+      </ng-template>
+    
+   
+    
+  </div>
+  
