@@ -9,6 +9,7 @@ import { GameStatusComponent } from './game-status/game-status.component';
 import { GameOptionsComponent } from './game-options/game-options.component';
 import { ModeComponent } from './game-options/mode/mode.component';
 import { DifficultyComponent } from './game-options/difficulty/difficulty.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DifficultyComponent } from './game-options/difficulty/difficulty.compon
     GameStatusComponent,
     GameOptionsComponent,
     ModeComponent,
-    DifficultyComponent
+    DifficultyComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
