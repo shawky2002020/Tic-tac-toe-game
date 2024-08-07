@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './game-options.component.css'
 })
 export class GameOptionsComponent {
+  bool:boolean=false;
 
 }

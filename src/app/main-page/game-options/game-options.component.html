@@ -1,1 +1,7 @@
-<p>game-options works!</p>
+<ng-container *ngIf="bool; else elseTemplate">
+  <app-difficulty></app-difficulty>
+</ng-container>
+<ng-template #elseTemplate>
+  <app-mode></app-mode>
+</ng-template>
+
