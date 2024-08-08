@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
   bool:boolean=true;
+  options:boolean=true;
+  gameup:boolean=true; //board up
+  displaygame(){
+    this.options=!this.options
+  }
 }

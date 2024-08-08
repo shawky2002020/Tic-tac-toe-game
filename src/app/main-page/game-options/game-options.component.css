@@ -1,0 +1,20 @@
+button{
+  background: #000;
+  border-radius: 150px;
+  color: whitesmoke;
+  padding: 50px;
+  height: 250px;
+  font-size: xx-large;
+  transition-property: background-color , color ,transform ;
+  transition-timing-function:ease-in-out;
+  border-style: none;
+  transition-duration: 0.5s;
+}
+button:hover{
+  background: #ffffff;
+  color: black;
+}
+button:focus{
+  transform: translateY(2rem);
+}
+

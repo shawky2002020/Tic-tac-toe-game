@@ -1,1 +1,4 @@
-<p>board works!</p>
+<div class="board">
+  <app-cell *ngFor="let cell of cells; let i = index"
+   [value]="cell" (cellClicked)="handleCellClick(i)"></app-cell>
+</div>

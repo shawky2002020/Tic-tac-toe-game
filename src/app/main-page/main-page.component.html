@@ -12,8 +12,13 @@
        <button >Start</button>
       </div>
     <ng-template #elseBlock>
-      <div class="start_btn">
-        <app-game-options></app-game-options>      </div>
+      <div class="start_btn" [style.margin.px]="!options ? '0' : '400'">
+       <app-game-options (playnow)="displaygame()" *ngIf="options;else xo"></app-game-options>
+       <ng-template #xo> 
+        <app-board ></app-board> 
+      </ng-template> 
+       
+      </div>
       </ng-template>
     
    
