@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input } from '@angular/core';
 import { Output } from '@angular/core';
+import { GameService } from '../../../services/ai.service';
 
 @Component({
   selector: 'app-difficulty',
@@ -18,6 +19,7 @@ export class DifficultyComponent {
     this.difficult=false;
     this.diffclicked.emit();
   }
+ 
  
   
 

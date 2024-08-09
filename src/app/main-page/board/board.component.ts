@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from '../../services/ai.service';
 
 @Component({
   selector: 'app-board',
@@ -6,16 +7,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent {
-  cells: string[] = Array(7*7).fill('');
-  currentPlayer: string = 'X';
+  constructor(public gameService: GameService) {}
 
-  handleCellClick(index: number): void {
-    if (!this.cells[index]) {
-      this.cells[index] = this.currentPlayer;
-      this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
-    }
+  ngOnInit(): void {
+    this.startNewGame();
   }
 
-  
+  startNewGame(): void {
+    this.gameService.resetGame();
+  }
 
+  onCellClick(row: number, col: number): void {
+    console.log('helloooo');
+    
+    if (!this.gameService.gameOver && this.gameService.board[row][col] === '') {
+      this.gameService.makeMove(row, col);
+
+      // Check if game is over after the player's move
+      if (!this.gameService.gameOver) {
+        if (this.gameService.currentPlayer === 'O' && this.gameService.gameMode !== 'human-vs-human') {
+          // Trigger AI move after player's move
+          setTimeout(() => {
+            this.gameService.aiMove();
+          }, 500); // Small delay for better user experience
+        }
+      }
+    }
+  }
 }

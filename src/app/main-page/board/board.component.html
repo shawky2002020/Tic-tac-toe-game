@@ -1,4 +1,57 @@
-<div class="board">
-  <app-cell *ngFor="let cell of cells; let i = index"
-   [value]="cell" (cellClicked)="handleCellClick(i)"></app-cell>
+<div class="game-options">
+  <select [(ngModel)]="gameService.gameMode">
+    <option value="human-vs-human">Human vs. Human</option>
+    <option value="human-vs-ai">Human vs. AI</option>
+    <option value="ai-vs-ai">AI vs. AI</option>
+  </select>
+
+  <!-- AI vs AI Difficulty Selection -->
+  <div *ngIf="gameService.gameMode === 'ai-vs-ai'">
+    <label>AI X Difficulty:</label>
+    <select [(ngModel)]="gameService.aiDifficultyPlayerX">
+      <option value="1">Easy</option>
+      <option value="3">Medium</option>
+      <option value="5">Hard</option>
+      <option value="8">Impossible</option>
+    </select>  
+
+    <label>AI O Difficulty:</label>
+    <select [(ngModel)]="gameService.aiDifficultyPlayerO">
+      <option value="1">Easy</option>
+      <option value="3">Medium</option>
+      <option value="5">Hard</option>
+      <option value="8">Impossible</option>
+    </select>
+  </div>
+
+  <!-- Human vs AI Difficulty Selection -->
+  <div *ngIf="gameService.gameMode === 'human-vs-ai'">
+    <label>AI Difficulty:</label>
+    <select [(ngModel)]="gameService.aiDifficultyPlayerO">
+      <option value="1">Easy</option>
+      <option value="3">Medium</option>
+      <option value="5">Hard</option>
+      <option value="8">Impossible</option>
+    </select>
+  </div>
+
+  <button (click)="startNewGame()">Start New Game</button>
+</div>
+
+<div class="game-board">
+  <div *ngFor="let row of gameService.board; let i = index">
+    <div *ngFor="let cell of row; let j = index" class="cell" (click)="onCellClick(i, j)">
+      {{ cell }}
+    </div>
+  </div>
+</div>
+
+<div class="game-status">
+  <p>Current Player: {{ gameService.currentPlayer }}</p>
+  <p *ngIf="gameService.gameOver">
+    {{ gameService.currentPlayer === 'X' ? 'X' : 'O' }} wins!
+  </p>
+  <p *ngIf="!gameService.gameOver && gameService.getAvailableMoves().length === 0">
+    It's a draw!
+  </p>
 </div>

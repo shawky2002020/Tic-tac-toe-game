@@ -10,15 +10,15 @@ export class ModeComponent {
   @Output() modeclicked = new EventEmitter<string>();
 
   PxP() {
-    this.mode = 'PxP';
+    this.mode = 'human-vs-human';
     this.modeclicked.emit(this.mode);
   }
   PxC() {
-    this.mode = 'PxC';
+    this.mode = 'human-vs-ai';
     this.modeclicked.emit(this.mode);
   }
   CxC() {
-    this.mode = 'CxC';
+    this.mode = 'ai-vs-ai';
     this.modeclicked.emit(this.mode);
   }
 }
