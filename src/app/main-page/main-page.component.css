@@ -10,14 +10,13 @@ img{
   height: 100%;
   width: 100%;
   z-index: -3;
-  /* overflow: hidden; */
-
+  overflow: hidden;
 }
 .page::before{
   height: 820px;
   content: '';
   z-index: -2;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 97%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
   inset: 0;
   position: absolute;
 }
@@ -30,14 +29,18 @@ h1{
 }
 body{
   background: rgb(255, 255, 255);
+
 }
 .start_btn{
   display: flex;
   justify-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 400px;
+  margin-top: 300px;
 
+}
+.k{
+  margin-bottom: 600px;
 }
 /* .goup{
   display: flex;
@@ -56,5 +59,14 @@ button{
   font-size: xx-large;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
+}
+
+.boardtry{
+  border-radius:30px ;
+  padding-right:40px ;
+  padding-left: 40px;
+  background: #000000b5;
+  margin-bottom: 170px;
+
 }
 

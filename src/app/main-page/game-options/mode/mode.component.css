@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 700px;
   position: relative;
-  justify-content:center ;
+  justify-content:center ;}
   
  .text{
-   background: #000;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
    border-top-left-radius:10px ;
    border-top-right-radius:10px ;
  
@@ -15,7 +15,7 @@
   font-size: 40px;
   padding: 20px;
  }
- }
+ 
  
  .button-container{
    display: grid;
@@ -24,22 +24,37 @@
  }
  
  button{
-   border-right: white thin;
-   background: #000;
-   color: aliceblue;
-   font-size: 15px;
-   font-weight:400;
-   transition-property: background-color , color,padding,transform;
- }
- button:hover{
-   background: #000000a7;
-   color: #ffffff;
-   transform:scale(0.9);
- }
+  
+  border: white thin;
+  background: rgba(0, 0, 0, 0.24);
+  color: aliceblue;
+  font-size: 15px;
+  font-weight:400;
+  transition-property: background-color , color,padding,transform,border;
+}
+button:hover{
+  background: #000000a8;
+  
+}
+button:focus{
+  background: white;
+  color: #000000;
+  text-decoration: underline;
+}
  
  
  button{
    transition-duration: 0.3s;
    transition-timing-function: ease-in-out;}
+   button{
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;}
+  
+    body{
+      background: #00000075;
+      border-radius: 20px;
+    }
+  
+   
  
  

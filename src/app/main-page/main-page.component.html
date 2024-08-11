@@ -9,19 +9,16 @@
 </div> 
 
     <div class="start_btn" *ngIf="bool ; else elseBlock "   (click)="bool=!bool;" >
-       <button >Start</button>
+       <button>Start</button>
       </div>
-    <ng-template #elseBlock>
-      <div class="start_btn" [style.margin.px]="!options ? '0' : '400'">
-       <app-game-options (playnow)="displaygame()" *ngIf="options;else xo"></app-game-options>
-       <ng-template #xo> 
-        <app-board ></app-board> 
+    <ng-template #elseBlock >
+      <div class="start_btn" [style.margin.px]="!options ? '0' : '50' ">
+       <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo"></app-game-options>
+       <ng-template #xo > 
+        <app-board class="boardtry"></app-board> 
       </ng-template> 
        
       </div>
       </ng-template>
-    
-   
-    
   </div>
   

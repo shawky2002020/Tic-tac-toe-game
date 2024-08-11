@@ -18,8 +18,6 @@ export class BoardComponent {
   }
 
   onCellClick(row: number, col: number): void {
-    console.log('helloooo');
-    
     if (!this.gameService.gameOver && this.gameService.board[row][col] === '') {
       this.gameService.makeMove(row, col);
 
@@ -29,7 +27,7 @@ export class BoardComponent {
           // Trigger AI move after player's move
           setTimeout(() => {
             this.gameService.aiMove();
-          }, 500); // Small delay for better user experience
+          }, 100); // Small delay for better user experience
         }
       }
     }

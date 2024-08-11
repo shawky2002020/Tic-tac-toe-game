@@ -8,16 +8,12 @@ import { GameService } from '../../../services/ai.service';
   styleUrl: './difficulty.component.css'
 })
 export class DifficultyComponent {
-  difficult!:boolean; // true=>hard false=>easy
+  constructor(public gameservice:GameService){}
 
   @Output() diffclicked = new EventEmitter<void>();
-  clickedhard():void{
-    this.difficult=true;
-    this.diffclicked.emit();
-  }
-  clickedeasy():void{
-    this.difficult=false;
-    this.diffclicked.emit();
+
+  displayXO(){
+    this.gameservice.displayxo=false;
   }
  
  

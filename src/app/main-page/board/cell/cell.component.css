@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px; /* Adjust size as needed */
-  height: 80px; /* Adjust size as needed */
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
   border: 1px solid #000;
   font-size: 2em;
   cursor: pointer;
   background-color: #fff; /* Background color for empty cell */
+  color: white;
 }
 
 .cell:hover {

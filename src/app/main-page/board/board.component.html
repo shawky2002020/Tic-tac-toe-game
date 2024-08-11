@@ -1,31 +1,31 @@
 <div class="game-options">
-  <select [(ngModel)]="gameService.gameMode">
+  <!-- <select [(ngModel)]="gameService.gameMode">
     <option value="human-vs-human">Human vs. Human</option>
     <option value="human-vs-ai">Human vs. AI</option>
     <option value="ai-vs-ai">AI vs. AI</option>
-  </select>
+  </select> -->
 
   <!-- AI vs AI Difficulty Selection -->
-  <div *ngIf="gameService.gameMode === 'ai-vs-ai'">
+  <!-- <div *ngIf="gameService.gameMode === 'ai-vs-ai' ">
     <label>AI X Difficulty:</label>
     <select [(ngModel)]="gameService.aiDifficultyPlayerX">
       <option value="1">Easy</option>
       <option value="3">Medium</option>
       <option value="5">Hard</option>
       <option value="8">Impossible</option>
-    </select>  
+    </select>   -->
 
-    <label>AI O Difficulty:</label>
+  <!-- <label>AI O Difficulty:</label>
     <select [(ngModel)]="gameService.aiDifficultyPlayerO">
       <option value="1">Easy</option>
       <option value="3">Medium</option>
       <option value="5">Hard</option>
       <option value="8">Impossible</option>
     </select>
-  </div>
+  </div> -->
 
   <!-- Human vs AI Difficulty Selection -->
-  <div *ngIf="gameService.gameMode === 'human-vs-ai'">
+  <!-- <div *ngIf="gameService.gameMode === 'human-vs-ai'">
     <label>AI Difficulty:</label>
     <select [(ngModel)]="gameService.aiDifficultyPlayerO">
       <option value="1">Easy</option>
@@ -33,14 +33,27 @@
       <option value="5">Hard</option>
       <option value="8">Impossible</option>
     </select>
-  </div>
+  </div> -->
 
   <button (click)="startNewGame()">Start New Game</button>
+  <div class="score-container">
+    
+    <h3>Score</h3>
+  </div>
+    <div class="score">
+      <h4>Player X : {{gameService.Xscore}} </h4>
+      <h4>Player O : {{gameService.Oscore}} </h4>
+    </div>
+  
 </div>
 
 <div class="game-board">
   <div *ngFor="let row of gameService.board; let i = index">
-    <div *ngFor="let cell of row; let j = index" class="cell" (click)="onCellClick(i, j)">
+    <div
+      *ngFor="let cell of row; let j = index"
+      class="cell"
+      (click)="onCellClick(i, j)"
+    >
       {{ cell }}
     </div>
   </div>
@@ -49,9 +62,13 @@
 <div class="game-status">
   <p>Current Player: {{ gameService.currentPlayer }}</p>
   <p *ngIf="gameService.gameOver">
-    {{ gameService.currentPlayer === 'X' ? 'X' : 'O' }} wins!
+    {{ gameService.currentPlayer === "X" ? "X" : "O" }} wins!
   </p>
-  <p *ngIf="!gameService.gameOver && gameService.getAvailableMoves().length === 0">
+  <p
+    *ngIf="
+      !gameService.gameOver && gameService.getAvailableMoves().length === 0
+    "
+  >
     It's a draw!
   </p>
 </div>

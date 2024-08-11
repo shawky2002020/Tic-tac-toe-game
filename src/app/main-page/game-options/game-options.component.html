@@ -1,11 +1,11 @@
 <ng-container  *ngIf="bool; else elseTemplate">
-  <app-difficulty (diffclicked)="toogle()"></app-difficulty>
+  <app-mode 
+  (modeclicked)="modesave($event)" 
+   ></app-mode>
 </ng-container>
 <ng-template #elseTemplate>
-  <app-mode *ngIf="modebool" (modeclicked)="modesave($event)" ></app-mode>
-  <div *ngIf="!modebool">
-    <button (click)="play()" >Lets Play!</button>
-  </div>
+  <app-difficulty *ngIf="diffbool" (diffclicked)="togglediff()"></app-difficulty>
+
 </ng-template>
 
 

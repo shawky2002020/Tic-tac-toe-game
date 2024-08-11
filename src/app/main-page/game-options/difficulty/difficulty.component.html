@@ -1,7 +1,48 @@
-<div class="container">
-  <div class="text">Choose Difficulty</div> 
+
+
+<body>
+  
+
+<div *ngIf="gameservice.gameMode==='ai-vs-ai' ">
+<div class="container" >
+  <div class="text" >Choose Difficulty of Player X</div> 
   <div class="button-container">
-    <button (click)="clickedeasy()">Hard</button>
-    <button (click)="clickedhard()">Easy</button>
+    <button (click)="gameservice.aiDifficultyPlayerX=0">Easy        </button>
+    <button (click)="gameservice.aiDifficultyPlayerX=1">Medium    </button>
+    <button (click)="gameservice.aiDifficultyPlayerX=2">Hard      </button>
+    <button (click)="gameservice.aiDifficultyPlayerX=5">Impossible</button>
   </div>
 </div>
+    <div class="container">
+  <div class="text">Choose Difficulty of Player O</div> 
+  <div class="button-container">
+    <button (click)="gameservice.aiDifficultyPlayerO=0">Easy      </button>
+    <button (click)="gameservice.aiDifficultyPlayerO=1">Medium    </button>
+    <button (click)="gameservice.aiDifficultyPlayerO=2">Hard      </button>
+    <button (click)="gameservice.aiDifficultyPlayerO=5">Impossible</button>
+  </div>
+</div>
+<div class="play">
+<button type="button" class="playbtn" (click)="displayXO()" >Lets play!</button>
+</div>
+</div>
+
+<div *ngIf="gameservice.gameMode==='human-vs-ai'">
+  <div class="container" >
+    <div class="text" >Choose Difficulty of AI</div> 
+    <div class="button-container">
+      <button (click)="gameservice.aiDifficultyPlayerO=0">Easy        </button>
+      <button (click)="gameservice.aiDifficultyPlayerO=1">Medium    </button>
+      <button (click)="gameservice.aiDifficultyPlayerO=2">Hard      </button>
+      <button (click)="gameservice.aiDifficultyPlayerO=5">Impossible</button>
+    </div>
+  </div>
+  <div class="play">
+    <button type="button" class="playbtn" (click)="displayXO()" >Lets play!</button>
+    </div>
+</div>
+<div *ngIf="gameservice.gameMode==='human-vs-human' ">
+  <button type="button" class="playbtn1" (click)="displayXO()" >Lets play!</button>
+
+</div>
+</body>

@@ -1,26 +1,90 @@
 .game-options {
+  display: flex;
   margin-bottom: 20px;
-}
 
+}
+h3{color: white;}
 .game-board {
   display: grid;
   grid-template-columns: repeat(7, 50px);
   grid-template-rows: repeat(7, 50px);
-  gap: 5px;
+  /* gap: 5px; */
 }
 
 .cell {
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   width: 50px;
   height: 50px;
-  border: 1px solid #000;
+  border: 1px solid #898989;
   font-size: 2em;
   cursor: pointer;
-  background: whitesmoke;
+  background: #0000005b;
 }
 
 .game-status {
   margin-top: 20px;
 }
+p{
+  color: white;
+  font-size: large;
+}
+
+.score-container{
+  /* background: #a3a3a353; */
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0.24) 0%, #a3a3a353 94%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-left: 40px;
+  margin-top: 15px;
+}
+.score{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: #0000001e;
+  margin-top: 15px;
+  padding-right: 40px;
+
+
+}
+
+
+
+
+  body{
+    /* background: #000000b5; */
+    border-radius: 20px;
+  }
+  button{
+    margin-top: 15px;
+    padding: 10px;
+    background: #00000087;
+    border-style:none ;
+    border-radius: 20px;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition-property: scale,background-color,color;
+  }
+  button:hover{
+    scale: 1.1;
+  }
+  button:focus{
+    background: #a7a6a6;
+    color: black;
+  }
+  button{
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+  }
+

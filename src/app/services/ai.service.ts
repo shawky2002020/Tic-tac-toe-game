@@ -10,18 +10,21 @@ export class GameService {
   aiDifficultyPlayerO!: number;
   aiDifficultyPlayerX!: number;
   gameMode!: string;
+  displayxo:boolean=true;
+  Xscore:number=0;
+  Oscore:number=0;
 
-  constructor() {
-    this.resetGame();
-  }
+ 
+
+  constructor() { }
 
   resetGame(): void {
     this.board = Array(7).fill(null).map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
     this.aiDifficultyPlayerO = 10; // Default AI difficulty for player O
-    this.aiDifficultyPlayerX = 10; // Default AI difficulty for player X
-    this.gameMode = 'human-vs-human'; // Default game mode
+    this.aiDifficultyPlayerX = 1; // Default AI difficulty for player X
+    // this.gameMode = 'human-vs-human'; // Default game mode
   }
 
   makeMove(row: number, col: number): void {
@@ -30,11 +33,21 @@ export class GameService {
       this.board[row][col] = this.currentPlayer;
 
       if (this.isWinningMove(this.board, this.currentPlayer)) {
+        
         this.gameOver = true;
         console.log(`Player ${this.currentPlayer} wins!`);
+        //update score
+        if(this.currentPlayer==='X'){
+          this.Xscore++;
+        }
+        else if(this.currentPlayer==='O'){
+          this.Oscore++;
+        }
       } else {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
         console.log(`Now it's ${this.currentPlayer}'s turn`);
+        console.log(this.gameMode);
+
 
         if (this.currentPlayer === 'O' && this.gameMode === 'human-vs-ai') {
           setTimeout(() => this.aiMove(), 500);
@@ -138,7 +151,7 @@ export class GameService {
     let bestMove: [number, number] | null = null;
     let depth = 1;
     const startTime = performance.now();
-    const timeLimit = 3000; // 3 seconds time limit
+    const timeLimit = 10000; // 2.2 seconds time limit
 
     console.log("Starting Iterative Deepening Search");
 
@@ -230,7 +243,7 @@ export class GameService {
 
   evaluateBoard(board: string[][]): number {
     let score = 0;
-
+    
     // Check for immediate winning moves
     if (this.isWinningMove(board, 'O')) return 100000; // Very high value for AI winning
     if (this.isWinningMove(board, 'X')) return -100000; // Very low value for Player winning

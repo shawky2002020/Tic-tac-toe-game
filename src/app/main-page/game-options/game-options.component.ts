@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { log } from 'console';
+import { GameService } from '../../services/ai.service';
 
 @Component({
   selector: 'app-game-options',
@@ -8,12 +9,17 @@ import { log } from 'console';
 })
 export class GameOptionsComponent {
   mode!:string;
-  modebool:boolean=true; //to show playgame button after selecting mode
+  diffbool:boolean=true; //to show playgame button after selecting mode
+  togglediff(){this.diffbool=!this.diffbool}
+  constructor(gameservice:GameService){
+    console.log(gameservice.gameMode);
+    
+  }
 
 
   modesave($event:string){
     this.mode=$event;
-    this.modebool=!this.modebool;
+    this.toogle();
     
   }
   bool:boolean=true;

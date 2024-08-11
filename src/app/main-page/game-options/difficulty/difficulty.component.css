@@ -1,44 +1,102 @@
 .container{
  display: grid;
- grid-template-columns: 700px;
+ grid-template-columns: 1fr;
  position: relative;
  justify-content:center ;
- 
+ margin: 20px; 
+ border-radius: 50%;
+
+}
 .text{
-  background: #000;
+  /* background:linear-gradient(180deg ,#000000a7 5%,#000000b5 100%) ; */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
+
   border-top-left-radius:10px ;
   border-top-right-radius:10px ;
-
   color: white;
- text-align: center;
- font-weight: 500;
- font-size: 40px;
- padding: 20px;
-}
-}
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  padding: 20px;
+  }
+
 
 .button-container{
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 60px; 
 }
 
 button{
-  border-right: white thin;
-  background: #000;
+  
+  border: white thin;
+  background: #000000d7;
   color: aliceblue;
   font-size: 15px;
   font-weight:400;
-  transition-property: background-color , color,padding,transform;
+  transition-property: background-color , color,padding,transform,border;
 }
 button:hover{
-  background: #000000a7;
-  color: #ffffff;
-  transform:scale(0.9);
+  background: #0000001b;
+  
+}
+
+.play{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+}
+.playbtn{
+  height: 140px;
+  border-radius: 80px;
+  border-radius: 50%;
+  padding: 35px;
+
+}
+
+button:focus{
+  background: white;
+  color: #000000;
+  text-decoration: underline;
 }
 
 
+.playbtn1:focus,
+.playbtn:hover{
+  color: black;
+  background: rgba(255, 255, 255, 0.575);
+  scale: 0.95;
+  transition-property: color,background-color,scale;
+}
+
+.playbtn1:focus,
+.playbtn:focus{
+  background: #000;
+  color: rgba(255, 255, 255, 0.546);
+}
+.playbtn1{
+  height: 230px;
+  border-radius: 80px;
+  border-radius: 50%;
+  padding: 70px;
+
+}
+
+.playbtn,
+.playbtn1,
 button{
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;}
+
+  body{
+    background: #000000b5;
+    border-radius: 20px;
+  }
+
+
+
+
 
