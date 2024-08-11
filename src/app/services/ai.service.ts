@@ -22,7 +22,7 @@ export class GameService {
     this.board = Array(7).fill(null).map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
-    this.aiDifficultyPlayerO = 10; // Default AI difficulty for player O
+    this.aiDifficultyPlayerO = 3; // Default AI difficulty for player O
     this.aiDifficultyPlayerX = 1; // Default AI difficulty for player X
     // this.gameMode = 'human-vs-human'; // Default game mode
   }
@@ -151,7 +151,7 @@ export class GameService {
     let bestMove: [number, number] | null = null;
     let depth = 1;
     const startTime = performance.now();
-    const timeLimit = 10000; // 2.2 seconds time limit
+    const timeLimit = 2200; // 2.2 seconds time limit
 
     console.log("Starting Iterative Deepening Search");
 
