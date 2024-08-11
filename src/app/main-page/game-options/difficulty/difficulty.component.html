@@ -1,6 +1,14 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="difficulty.component.css">
+</head>
 
-<body>
+<body *ngIf="true" @fadeIn>
   
 
 <div *ngIf="gameservice.gameMode==='ai-vs-ai' ">
@@ -23,7 +31,7 @@
   </div>
 </div>
 <div class="play">
-<button type="button" class="playbtn" (click)="displayXO()" >Lets play!</button>
+<button type="button" class="playbtn" (click)="displayXO()" >GO!</button>
 </div>
 </div>
 
@@ -38,11 +46,11 @@
     </div>
   </div>
   <div class="play">
-    <button type="button" class="playbtn" (click)="displayXO()" >Lets play!</button>
+    <button type="button" class="playbtn" (click)="displayXO()" >GO!</button>
     </div>
 </div>
 <div *ngIf="gameservice.gameMode==='human-vs-human' ">
-  <button type="button" class="playbtn1" (click)="displayXO()" >Lets play!</button>
+  <button type="button" class="playbtn1" (click)="displayXO()" >GO!</button>
 
 </div>
 </body>

@@ -11,6 +11,7 @@ import { GameOptionsComponent } from './main-page/game-options/game-options.comp
 import { ModeComponent } from './main-page/game-options/mode/mode.component';
 import { DifficultyComponent } from './main-page/game-options/difficulty/difficulty.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MainPageComponent } from './main-page/main-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration()

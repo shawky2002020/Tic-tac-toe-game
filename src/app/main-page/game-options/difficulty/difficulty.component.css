@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .container{
  display: grid;
  grid-template-columns: 1fr;
@@ -8,15 +11,15 @@
 
 }
 .text{
-  /* background:linear-gradient(180deg ,#000000a7 5%,#000000b5 100%) ; */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
+  background: linear-gradient(0deg, rgb(63, 162, 246,0.24) 1%, #3FA2F6 94%);
 
   border-top-left-radius:10px ;
   border-top-right-radius:10px ;
-  color: white;
+  color: #FAFFAF;
   text-align: center;
-  font-weight: 300;
-  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.3rem;
+  text-align: center;
   padding: 20px;
   }
 
@@ -27,72 +30,80 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 60px; 
 }
-
-button{
-  
-  border: white thin;
-  background: #000000d7;
-  color: aliceblue;
-  font-size: 15px;
-  font-weight:400;
-  transition-property: background-color , color,padding,transform,border;
-}
-button:hover{
-  background: #0000001b;
-  
-}
-
 .play{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
  
+}
+
+
+button{
+  
+  border-style: none;
+  background: rgb(63, 162, 246,0.24);
+  color: #FAFFAF;
+  font-family:  cursive;
+  font-size: 1.5rem;
+  transition-property: background-color , color,padding,transform,border;
+}
+button:hover{
+  background: #0F67B1;
   
 }
+
+
+
+button:active{
+  background: white;
+  color: #3FA2F6;
+}
+
 .playbtn{
   height: 140px;
   border-radius: 80px;
   border-radius: 50%;
   padding: 35px;
+  color: #3FA2F6;
+  background: #FAFFAF;
 
 }
 
-button:focus{
-  background: white;
-  color: #000000;
-  text-decoration: underline;
-}
-
-
-.playbtn1:focus,
-.playbtn:hover{
-  color: black;
-  background: rgba(255, 255, 255, 0.575);
-  scale: 0.95;
-  transition-property: color,background-color,scale;
-}
-
-.playbtn1:focus,
-.playbtn:focus{
-  background: #000;
-  color: rgba(255, 255, 255, 0.546);
-}
 .playbtn1{
   height: 230px;
   border-radius: 80px;
   border-radius: 50%;
   padding: 70px;
+  color: #3FA2F6;
+  background: #FAFFAF;
 
 }
+.playbtn1:hover,
+.playbtn:hover{
+  color: #FAFFAF;
+  background: #0F67B1;
+  scale: 1.1;
+  transition-property: color,background-color,scale;
+}
+
+
+
+/* .playbtn1:focus,
+.playbtn:focus{
+  background: #000;
+  color: rgba(255, 255, 255, 0.546);
+} */
+
 
 .playbtn,
 .playbtn1,
 button{
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
   transition-timing-function: ease-in-out;}
 
   body{
-    background: #000000b5;
+    background: rgb(63, 162, 246,0.24);
     border-radius: 20px;
   }
 

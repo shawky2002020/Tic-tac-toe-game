@@ -7,10 +7,10 @@
   border: 1px solid #000;
   font-size: 2em;
   cursor: pointer;
-  background-color: #fff; /* Background color for empty cell */
-  color: white;
+  background-color: #96C9F4; /* Background color for empty cell */
+  color: #0F67B1;
 }
 
 .cell:hover {
-  background-color: #f0f0f0; /* Change background on hover for better UX */
+  background-color: #FAFFAF; /* Change background on hover for better UX */
 }

@@ -5,17 +5,17 @@
     
     <h1 >Tic Tac Toe Game</h1>
 
-  <img src="xo 1.jpg" alt="Image loading">
+  <img src="bg.jpg" alt="Image loading">
 </div> 
 
-    <div class="start_btn" *ngIf="bool ; else elseBlock "   (click)="bool=!bool;" >
+    <div class="start_btn" *ngIf="bool ; else elseBlock " @fadeIn   (click)="bool=!bool;" >
        <button>Start</button>
       </div>
-    <ng-template #elseBlock >
+    <ng-template #elseBlock  >
       <div class="start_btn" [style.margin.px]="!options ? '0' : '50' ">
-       <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo"></app-game-options>
+       <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo" @fadeIn></app-game-options>
        <ng-template #xo > 
-        <app-board class="boardtry"></app-board> 
+        <app-board class="boardtry" *ngIf="true" @fadeIn></app-board> 
       </ng-template> 
        
       </div>

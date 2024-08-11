@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { GameService } from '../../../services/ai.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
+
 @Component({
   selector: 'app-mode',
   templateUrl: './mode.component.html',

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 img{
   object-fit: cover;
   height: 100%;
@@ -10,18 +13,21 @@ img{
   height: 100%;
   width: 100%;
   z-index: -3;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .page::before{
   height: 820px;
   content: '';
   z-index: -2;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%);
   inset: 0;
   position: absolute;
 }
 h1{
-  font-family:monospace;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
   position: relative;
   text-align: center;
   z-index:2;
@@ -39,26 +45,23 @@ body{
   margin-top: 300px;
 
 }
-.k{
-  margin-bottom: 600px;
-}
-/* .goup{
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  margin-top: 100px;
 
-} */
+
 button{
   padding: 100px;
   border-radius:50px ;
-  background: #000;
-  color: aliceblue;
+  background: #3FA2F6;
+  color: #FAFFAF;
+  border-style: none;
   font-weight: 700;
   font-size: xx-large;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
+}
+button:hover{
+  background: #0F67B1;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
 .boardtry{
@@ -67,6 +70,8 @@ button{
   padding-left: 40px;
   background: #000000b5;
   margin-bottom: 170px;
+  background: rgb(63, 162, 246,0.24);
+
 
 }
 

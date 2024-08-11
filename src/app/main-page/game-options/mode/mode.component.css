@@ -5,14 +5,15 @@
   justify-content:center ;}
   
  .text{
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #000000 94%);
+  background: linear-gradient(0deg, rgb(15, 103, 177) 10%, #3FA2F6 84%);
    border-top-left-radius:10px ;
    border-top-right-radius:10px ;
- 
-   color: white;
+  color: white;
   text-align: center;
-  font-weight: 500;
-  font-size: 40px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
   padding: 20px;
  }
  
@@ -20,38 +21,38 @@
  .button-container{
    display: grid;
    grid-template-columns: 1fr ;
-   height: 120px; 
+   height: 220px; 
  }
  
  button{
   
   border: white thin;
-  background: rgba(0, 0, 0, 0.24);
-  color: aliceblue;
-  font-size: 15px;
-  font-weight:400;
+  background: #3FA2F6;
+  color: #FAFFAF;
+  font-family:  cursive;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
   transition-property: background-color , color,padding,transform,border;
 }
 button:hover{
-  background: #000000a8;
+  background: #0F67B1;
   
 }
-button:focus{
+/* button:focus{
   background: white;
   color: #000000;
   text-decoration: underline;
-}
+} */
  
  
  button{
-   transition-duration: 0.3s;
+   transition-duration: 0.2s;
    transition-timing-function: ease-in-out;}
-   button{
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;}
+ 
   
     body{
-      background: #00000075;
+      background: rgb(15, 103, 177);
       border-radius: 20px;
     }
   
