@@ -18,9 +18,14 @@
        <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo" @fadeIn></app-game-options>
        <ng-template #xo > 
         <app-board class="boardtry" *ngIf="true" @fadeIn></app-board> 
+        
+
       </ng-template> 
        
       </div>
+
       </ng-template>
+
   </div>
+
   

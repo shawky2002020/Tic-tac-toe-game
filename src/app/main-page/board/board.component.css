@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .game-options {
   display: flex;
@@ -19,26 +19,37 @@
 
 .cell {
   display: flex;
-  color: #e7f0f7;
+  color: #1A2130;
   justify-content: center;
   align-items: center;
   width: 55px;
   height: 55px;
-  border: 1px solid #e7f0f7;
-  font-size: 2em;
+  border: 1px  #e7f0f7;
+  border-style:outset;
+  font-family:  'Amatic SC', monospace;
+  font-size: 33px;
+  /* font-weight:200; */
+  /* font-family:After; */
   cursor: pointer;
-  background: rgb(63, 162, 246,0.24);
+  background: #0c528e;
   place-self: center;
 }
+#O{
+  width: 55px;
+  height: 55px;
+  font-size: 30px ;
+  font-weight:400;
+
+}
 .cell:hover{
-  background: #0F67B1;
+  background: #e7f0f7;
 }
 
 .game-status {
   margin-top: 20px;
 }
 p{
-  color: #e7f0f7;
+  color: #fdffe296;
   font-family: 'Press Start 2P', cursive;
   font-size: 1.3rem;
   text-align: center;
@@ -69,7 +80,7 @@ p{
   font-family: 'Press Start 2P', cursive;
   font-size: 1rem;
   text-align: center;
-  background: rgb(63, 162, 246,0.24);
+  /* background: linear-gradient(270deg,rgba(15, 104, 177, 0.808) 3%, #fdffe261 90%); */
   padding: 10px;  
   border-radius: 20px ;
   margin-left: 15px;
@@ -89,19 +100,20 @@ p{
     align-items: center;
   }
   button{
+    padding: 5px;
     height: 40px;
     margin-top: 15px;
     border-style:none ;
     border-radius: 20px;
     background-color: #e7f0f7;
-    color: #0F67B1;
+    color: #0c528e;
     font-size: large;
     cursor: pointer;
     transition-property: scale,background-color,color;
   }
   button:hover{
     scale: 1.1;
-    background: #0F67B1;
+    background: #0c528e;
     color: #e7f0f7;
   }
   button:active{

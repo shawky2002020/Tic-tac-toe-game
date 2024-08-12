@@ -47,6 +47,8 @@ button{
   font-family:  cursive;
   font-size: 1.5rem;
   transition-property: background-color , color,padding,transform,border;
+  cursor: pointer;
+
   
 }
 button:hover{
@@ -72,6 +74,7 @@ button:active{
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
+  cursor: pointer;
 
 }
 
@@ -85,6 +88,7 @@ button:active{
   font-family: cursive;
   font-size: 2rem;
   font-weight: 800;
+  cursor: pointer;
 
 }
 .playbtn1:hover,

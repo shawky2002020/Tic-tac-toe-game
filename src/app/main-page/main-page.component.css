@@ -19,9 +19,9 @@ img{
   height: 820px;
   content: '';
   z-index: -2;
-  background: #0f68b1a0;
-  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%); */
-  inset: 0;
+  /* background: #0f68b1a0; */
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%); 
+   inset: 0;
   position: absolute;
 }
 
@@ -49,6 +49,11 @@ body{
 }
 
 
+
+
+
+
+
 button{
   padding: 80px;
   border-radius:50px ;
@@ -71,10 +76,8 @@ button:hover{
   border-radius:30px ;
   padding-right:40px ;
   padding-left: 40px;
-  background: #000000b5;
   margin-bottom: 170px;
-  background: #2775b9e0;
-
-
+  background:linear-gradient(0deg,#0c528e 3%,#fdffe296 95%);
+  /* background: #fdffe296; */
 }
 

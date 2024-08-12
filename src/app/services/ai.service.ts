@@ -159,14 +159,14 @@ export class GameService {
     let bestMove: [number, number] | null = null;
     let depth = 1;
     const startTime = performance.now();
-    const timeLimit = 2200; // 2.2 seconds time limit
+    const timeLimit = 2200; // 12 seconds time limit
 
     console.log("Starting Iterative Deepening Search");
 
     while (true) {
       const currentTime = performance.now();
       if (currentTime - startTime > timeLimit) {
-        console.log("Time limit exceeded, breaking out of search");
+        console.error("Time limit exceeded, breaking out of search");
         break;
       }
 
@@ -250,30 +250,33 @@ export class GameService {
   }
 
   evaluateBoard(board: string[][]): number {
+    // Initialize the score for the board
     let score = 0;
     
-    // Check for immediate winning moves
-    if (this.isWinningMove(board, 'O')) return 100000; // Very high value for AI winning
-    if (this.isWinningMove(board, 'X')) return -100000; // Very low value for Player winning
-
-    // Evaluate board control and strategic positions
-    score += this.evaluateBoardControl(board, 'O');
-    score -= this.evaluateBoardControl(board, 'X');
-
-    return score;
+    // Check if there's an immediate winning move for either player
+    if (this.isWinningMove(board, 'O')) return 100000; // High value for AI winning
+    if (this.isWinningMove(board, 'X')) return -100000; // Low value for Player winning
+  
+    // Evaluate control of the board for both players and adjust the score
+    score += this.evaluateBoardControl(board, 'O'); // Add points for AI control
+    score -= this.evaluateBoardControl(board, 'X'); // Subtract points for Player control
+  
+    return score; // Return the final evaluation score for the board
   }
-
+  
   evaluateBoardControl(board: string[][], player: string): number {
+    // Initialize the score for the player's board control
     let score = 0;
-
-    // Example heuristic: center control, corner control, and edge control
+  
+    // Heuristic: Check control of the center, corners, and edges
     const center = board[3][3];
     const corners = [board[0][0], board[0][6], board[6][0], board[6][6]];
     const edges = [
       board[0][3], board[3][0], board[3][6], board[6][3], // Mid edges
       board[1][1], board[1][5], board[5][1], board[5][5]  // Near corners
     ];
-
+  
+    // Add points if the player controls the center, corners, or edges
     if (center === player) score += 100;
     corners.forEach(corner => {
       if (corner === player) score += 60;
@@ -281,64 +284,79 @@ export class GameService {
     edges.forEach(edge => {
       if (edge === player) score += 40;
     });
-
-    // Add heuristics for controlling rows, columns, and diagonals
+  
+    // Add points based on the player's control of rows, columns, and diagonals
     score += this.evaluateLines(board, player);
-
-    return score;
+  
+    return score; // Return the score for the player's board control
   }
-
+  
   evaluateLines(board: string[][], player: string): number {
+    // Initialize the score for the player's control of lines
     let score = 0;
     const size = 7;
     const winCondition = 4;
-
+  
+    // Evaluate horizontal lines
     for (let row = 0; row < size; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, 0, 1);
       }
     }
-
+  
+    // Evaluate vertical lines
     for (let col = 0; col < size; col++) {
       for (let row = 0; row <= size - winCondition; row++) {
         score += this.evaluateLine(board, player, row, col, 1, 0);
       }
     }
-
+  
+    // Evaluate diagonal lines (top-left to bottom-right)
     for (let row = 0; row <= size - winCondition; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, 1, 1);
       }
     }
-
+  
+    // Evaluate diagonal lines (top-right to bottom-left)
     for (let row = winCondition - 1; row < size; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, -1, 1);
       }
     }
-
-    return score;
+  
+    return score; // Return the total score for the player's control of lines
   }
-
+  
   evaluateLine(board: string[][], player: string, row: number, col: number, dRow: number, dCol: number): number {
     let countPlayer = 0;
     let countOpponent = 0;
     let countEmpty = 0;
 
+    // Identify the opponent
+    const opponent = player === 'O' ? 'X' : 'O';
+
     for (let i = 0; i < 4; i++) {
-      const current = board[row + i * dRow][col + i * dCol];
-      if (current === player) countPlayer++;
-      if (current === '') countEmpty++;
-      if (current && current !== player) countOpponent++;
+        const current = board[row + i * dRow][col + i * dCol];
+        if (current === player) countPlayer++;
+        if (current === '') countEmpty++;
+        if (current === opponent) countOpponent++;
     }
 
+    // Block immediate opponent threats with higher priority
+    if (countOpponent === 3 && countEmpty === 1) return -10000; // Block opponent's strong chance to win
+
+    // Evaluate AI's chances to win or create opportunities
     if (countPlayer === 3 && countEmpty === 1) return 1000; // Strong chance to win
     if (countPlayer === 2 && countEmpty === 2) return 500; // Good control
-    if (countOpponent === 3 && countEmpty === 1) return -800; // Block opponent's potential win
+
+    // Evaluate opponent's potential threats and apply blocking
+    if (countOpponent === 2 && countEmpty === 2) return -800; // Block opponent's potential setup
 
     return 0;
-  }
+}
 
+  
   isGameOver(board: string[][]): boolean {
     return this.getAvailableMoves().length === 0 || this.isWinningMove(board, 'O') || this.isWinningMove(board, 'X');
   }
