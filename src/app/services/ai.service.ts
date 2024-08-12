@@ -159,7 +159,7 @@ export class GameService {
     let bestMove: [number, number] | null = null;
     let depth = 1;
     const startTime = performance.now();
-    const timeLimit = 2200; // 12 seconds time limit
+    const timeLimit = 4200; // 2.2 seconds time limit
 
     console.log("Starting Iterative Deepening Search");
 
