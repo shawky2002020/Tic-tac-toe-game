@@ -2,8 +2,10 @@
   <div class="page">
 
    <div class="page-container">
-    
+
+    <div class="text">
     <h1 >Tic Tac Toe Game</h1>
+  </div>
 
   <img src="bg.jpg" alt="Image loading">
 </div> 
@@ -12,7 +14,7 @@
        <button>Start</button>
       </div>
     <ng-template #elseBlock  >
-      <div class="start_btn" [style.margin.px]="!options ? '0' : '50' ">
+      <div class="start_btn" [style.margin.px]="!gameservice.displayxo ? '41' : '160' ">
        <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo" @fadeIn></app-game-options>
        <ng-template #xo > 
         <app-board class="boardtry" *ngIf="true" @fadeIn></app-board> 

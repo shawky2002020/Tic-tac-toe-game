@@ -22,10 +22,13 @@
 </div>
 
 <div class="game-status">
-  <p>Current Player: {{ gameService.currentPlayer }}</p>
-  <p *ngIf="gameService.gameOver" style="color: #faffaf">
-    {{ gameService.currentPlayer === "X" ? "You" : "Computer" }} won!
+  <p >Current Player: {{ gameService.currentPlayer }}</p>
+  <div *ngIf="true" @fadeIn>
+  <p *ngIf="gameService.gameOver" style="color: #062947 ;">
+    
+    {{ gameService.currentPlayer === "X" ? "Player X" : "Player O" }} won!
   </p>
+</div>
   <p
     *ngIf="
       !gameService.gameOver && gameService.getAvailableMoves().length === 0

@@ -7,9 +7,9 @@ export class GameService {
   board!: string[][];
   currentPlayer!: string;
   gameOver!: boolean;
-  aiDifficultyPlayerO!: number;
-  aiDifficultyPlayerX!: number;
-  gameMode!: string;
+  aiDifficultyPlayerX: number = 1;
+  aiDifficultyPlayerO: number= 1;
+  gameMode: string= 'human-vs-human';
   displayxo:boolean=true;
   Xscore:number=0;
   Oscore:number=0;
@@ -22,8 +22,8 @@ export class GameService {
     this.board = Array(7).fill(null).map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
-    this.aiDifficultyPlayerO = 3; // Default AI difficulty for player O
-    this.aiDifficultyPlayerX = 1; // Default AI difficulty for player X
+    // this.aiDifficultyPlayerO = 3; // Default AI difficulty for player O
+    // this.aiDifficultyPlayerX = 1; // Default AI difficulty for player X
     // this.gameMode = 'human-vs-human'; // Default game mode
   }
 
@@ -61,9 +61,12 @@ export class GameService {
   }
 
   aiMove(): void {
-    if (this.gameOver || this.currentPlayer !== 'O') {
+    if (this.gameOver || (this.currentPlayer !== 'O' && this.gameMode!=='ai-vs-ai') ) {
+      console.log('returned');
+       //if gameover or current player is X
       return;
     }
+    
 
     let bestMove: [number, number] | null = null;
 
@@ -72,7 +75,12 @@ export class GameService {
 
     if (!bestMove) {
       // Use iterative deepening search if no immediate move found
-      bestMove = this.iterativeDeepeningSearch(this.aiDifficultyPlayerO);
+      if(this.currentPlayer==='O')
+        bestMove = this.iterativeDeepeningSearch(this.aiDifficultyPlayerO);
+      if(this.currentPlayer==='X')
+        bestMove = this.iterativeDeepeningSearch(this.aiDifficultyPlayerX);
+
+    
     }
 
     if (bestMove) {

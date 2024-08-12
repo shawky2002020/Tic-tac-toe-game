@@ -19,19 +19,21 @@ img{
   height: 820px;
   content: '';
   z-index: -2;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%);
+  background: #0f68b1a0;
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%); */
   inset: 0;
   position: absolute;
 }
+
 h1{
   font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 2rem;
   position: relative;
   text-align: center;
   z-index:2;
-  color: rgb(255, 255, 255);
+  color: #e7f0f7;
 }
 body{
   background: rgb(255, 255, 255);
@@ -42,16 +44,16 @@ body{
   justify-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 300px;
+  margin-top: 220px;
 
 }
 
 
 button{
-  padding: 100px;
+  padding: 80px;
   border-radius:50px ;
-  background: #3FA2F6;
-  color: #FAFFAF;
+  background: #e7f0f7;
+  color: #0F67B1;
   border-style: none;
   font-weight: 700;
   font-size: xx-large;
@@ -60,6 +62,7 @@ button{
 }
 button:hover{
   background: #0F67B1;
+  color:#e7f0f7 ;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
 }
@@ -70,7 +73,7 @@ button:hover{
   padding-left: 40px;
   background: #000000b5;
   margin-bottom: 170px;
-  background: rgb(63, 162, 246,0.24);
+  background: #2775b9e0;
 
 
 }
