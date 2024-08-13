@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
+    "deploy": "gh-pages -d dist/game",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "gh-pages -d dist/game",
     "serve:ssr:game": "node dist/game/server/server.mjs"
   },
   "private": true,

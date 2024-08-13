@@ -23,10 +23,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/game",
-            "baseHref": "/Tic-tac-toe-game/",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+          "outputPath": "dist/game",
+          "baseHref": "/Tic-tac-toe-game/",
+        
             "polyfills": [
               "zone.js"
             ],
