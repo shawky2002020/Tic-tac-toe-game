@@ -8,5 +8,5 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'game';
+  title = "Shawky's XO";
 }

@@ -15,7 +15,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
         animate('1s ease-in-out', style({ opacity: 1, transform: 'translateY(0)' }))
       ])
     ])
-  ]
+  ],
+  
 })
 export class DifficultyComponent {
   constructor(public gameservice:GameService){
