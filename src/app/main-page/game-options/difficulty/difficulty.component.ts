@@ -18,16 +18,16 @@ import { animate, style, transition, trigger } from '@angular/animations';
   ]
 })
 export class DifficultyComponent {
-  constructor(public gameservice:GameService){}
-
+  constructor(public gameservice:GameService){
+    gameservice.resetGame();
+    
+  }
+  bool=false;
   @Output() diffclicked = new EventEmitter<void>();
 
   displayXO(){
     this.gameservice.displayxo=false;
   }
- 
- 
-  
 
 }
 

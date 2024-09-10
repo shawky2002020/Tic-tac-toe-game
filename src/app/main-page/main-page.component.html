@@ -1,19 +1,9 @@
   
-  <div class="page">
+    <app-start></app-start>
 
-   <div class="page-container">
 
-    <div class="text">
-    <h1 >Tic Tac Toe Game</h1>
-  </div>
-
-  <img src="bg.jpg" alt="Image loading">
-</div> 
-
-    <div class="start_btn" *ngIf="bool ; else elseBlock " @fadeIn   (click)="bool=!bool;" >
-       <button>Start</button>
-      </div>
-    <ng-template #elseBlock  >
+    
+    <!-- <ng-template #elseBlock >
       <div class="start_btn" [style.margin.px]="!gameservice.displayxo ? '41' : '160' ">
        <app-game-options  (playnow)="displaygame()" *ngIf="gameservice.displayxo;else xo" @fadeIn></app-game-options>
        <ng-template #xo > 
@@ -24,8 +14,7 @@
        
       </div>
 
-      </ng-template>
+      </ng-template> -->
 
-  </div>
 
   

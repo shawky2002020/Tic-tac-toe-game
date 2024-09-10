@@ -27,21 +27,21 @@ export class ModeComponent {
   PxP() {
     this.mode = 'human-vs-human';
     this.gameservice.gameMode=this.mode;
-    this.modeclicked.emit(this.mode);
+    // this.modeclicked.emit(this.mode);
     console.log(this.mode);
     
   }
   PxC() {
     this.mode = 'human-vs-ai';
     this.gameservice.gameMode=this.mode;
-    this.modeclicked.emit(this.mode);
+    // this.modeclicked.emit(this.mode);
     console.log(this.mode);
 
   }
   CxC() {
     this.mode = 'ai-vs-ai';
     this.gameservice.gameMode=this.mode;
-    this.modeclicked.emit(this.mode);
+    // this.modeclicked.emit(this.mode);
     console.log(this.mode);
 
   }

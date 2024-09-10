@@ -21,30 +21,29 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-          "outputPath": "dist/game",
-          "baseHref": "/Tic-tac-toe-game/",
-        
+            "outputPath": "dist/game",
+            "index": "src/index.html",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            {
+              "glob": "**/*",
+              "input": "src/assets",
+              "output": "/assets/"
+            },
+            "src/favicon.ico"
+          ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
+
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -72,6 +71,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "game:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "game:build:production"
@@ -79,8 +81,7 @@
             "development": {
               "buildTarget": "game:build:development"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
@@ -96,8 +97,11 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
-              }
+                "input": "src/assets",
+                "output": "/assets/"
+              },
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
@@ -107,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e79d6a1e-ab79-473a-bc6b-212dace515bf"
   }
 }

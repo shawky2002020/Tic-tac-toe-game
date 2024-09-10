@@ -1,62 +1,84 @@
-.container{
+.container {
   display: grid;
-  grid-template-columns: 700px;
+  grid-template-columns: 1fr;
   position: relative;
-  justify-content:center ;}
-  
- .text{
-  background: linear-gradient(0deg, #0e5d9f 1%, #5795c8 80%);   border-top-left-radius:10px ;
-   border-top-right-radius:10px ;
+  justify-content: center;
+  padding: 1rem;
+  width: 60%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.text {
+  background: linear-gradient(0deg, #0e5d9f 1%, #5795c8 80%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   color: white;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
   padding: 20px;
- }
- 
- 
- .button-container{
-   display: grid;
-   grid-template-columns: 1fr ;
-   height: 220px; 
- }
- 
- button{
-  
+}
+
+a {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  all: unset;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: auto;
+}
+
+button {
   border: white thin;
   background: #0b487c;
   color: #e7f0f7;
-  font-family:  cursive;
+  font-family: cursive;
   font-size: 1.5rem;
   text-align: center;
-  margin-bottom: .2rem;
-  transition-property: background-color , color,padding,transform,border;
+  padding: 1rem;
+  transition-property: background-color, color, padding, transform, border;
   cursor: pointer;
+  width: 100%;
+  margin: 1px 0;
 
 }
-button:hover{
+
+button:hover {
   background: #0F67B1;
-  
 }
-/* button:focus{
-  background: white;
-  color: #000000;
-  text-decoration: underline;
-} */
- 
- 
- button{
-   transition-duration: 0.2s;
-   transition-timing-function: ease-in-out;}
- 
-  
-    body{
-      background: #87b4d8d3;
-      border-radius: 20px;
-    }
-  
-   
- 
- 
+
+button {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .text {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}

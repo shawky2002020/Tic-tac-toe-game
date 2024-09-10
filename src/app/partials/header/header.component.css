@@ -1,0 +1,22 @@
+
+img{
+  display: flex;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+  z-index: 0;
+  height: 10rem;
+  width: 15rem;
+  border-radius: 1rem;
+  margin: auto;
+  cursor: pointer;
+  transition: transform;
+}
+img:hover{
+  transform:scale(1.05);
+}
+
+img{
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}

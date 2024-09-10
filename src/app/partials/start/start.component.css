@@ -1,0 +1,27 @@
+.start_btn{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-top: 220px;
+
+}
+
+button{
+  padding: 80px;
+  border-radius:50px ;
+  background: #e7f0f7;
+  color: #0F67B1;
+  border-style: none;
+  font-weight: 700;
+  font-size: xx-large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #0F67B1;
+  color:#e7f0f7 ;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}

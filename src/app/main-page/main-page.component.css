@@ -1,83 +1,10 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
 
-img{
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  z-index: -3;
-}
-.page-container{
-  height: 100%;
-  width: 100%;
-  z-index: -3;
-  /* overflow: hidden; */
-}
-.page::before{
-  height: 820px;
-  content: '';
-  z-index: -2;
-  /* background: #0f68b1a0; */
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%); 
-   inset: 0;
-  position: absolute;
-}
 
-h1{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 2rem;
-  text-align: center;
-  margin: 2rem;
-  position: relative;
-  text-align: center;
-  z-index:2;
-  color: #e7f0f7;
-}
 body{
   background: rgb(255, 255, 255);
 
 }
-.start_btn{
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  margin-top: 220px;
 
-}
-
-
-
-
-
-
-
-button{
-  padding: 80px;
-  border-radius:50px ;
-  background: #e7f0f7;
-  color: #0F67B1;
-  border-style: none;
-  font-weight: 700;
-  font-size: xx-large;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  cursor: pointer;
-}
-button:hover{
-  background: #0F67B1;
-  color:#e7f0f7 ;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-}
-
-.boardtry{
-  border-radius:30px ;
-  padding-right:40px ;
-  padding-left: 40px;
-  margin-bottom: 170px;
-  background:linear-gradient(0deg,#0c528e 3%,#fdffe296 95%);
-  /* background: #fdffe296; */
-}
 

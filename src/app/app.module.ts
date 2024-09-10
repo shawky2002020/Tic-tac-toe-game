@@ -10,6 +10,12 @@ import { ModeComponent } from './main-page/game-options/mode/mode.component';
 import { DifficultyComponent } from './main-page/game-options/difficulty/difficulty.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrialComponent } from './trial/trial.component';
+import { RouterModule } from '@angular/router';
+import { StartComponent } from './partials/start/start.component';
+import { HeaderComponent } from './partials/header/header.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +25,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GameOptionsComponent,
     ModeComponent,
     DifficultyComponent,
-    MainPageComponent
+    MainPageComponent,
+    TrialComponent,
+    StartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-center',
+      newestOnTop:false,
+      preventDuplicates:true,
+      progressBar: true,
+    }), // ToastrModule added
+    // Other modules
+    
   ],
   providers: [
     provideClientHydration()

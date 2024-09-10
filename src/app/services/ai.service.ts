@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ export class GameService {
   board!: string[][];
   currentPlayer!: string;
   gameOver!: boolean;
-  aiDifficultyPlayerX: number = 1;
-  aiDifficultyPlayerO: number= 1;
+  aiDifficultyPlayerX!: number ;
+  aiDifficultyPlayerO!: number;
   gameMode: string= 'human-vs-human';
   displayxo:boolean=true;
   Xscore:number=0;
@@ -16,26 +17,24 @@ export class GameService {
 
  
 
-  constructor() { }
+  constructor(private toast:ToastrService) { }
 
   resetGame(): void {
     this.board = Array(7).fill(null).map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
-    // this.aiDifficultyPlayerO = 3; // Default AI difficulty for player O
-    // this.aiDifficultyPlayerX = 1; // Default AI difficulty for player X
+    this.aiDifficultyPlayerO =0;
+    this.aiDifficultyPlayerX=0; // Default AI difficulty for player X
     // this.gameMode = 'human-vs-human'; // Default game mode
   }
 
   makeMove(row: number, col: number): void {
     if (!this.board[row][col] && !this.gameOver) {
-      console.log(`Player ${this.currentPlayer} making move at (${row}, ${col})`);
       this.board[row][col] = this.currentPlayer;
 
       if (this.isWinningMove(this.board, this.currentPlayer)) {
         
         this.gameOver = true;
-        console.log(`Player ${this.currentPlayer} wins!`);
         //update score
         if(this.currentPlayer==='X'){
           this.Xscore++;
@@ -45,8 +44,7 @@ export class GameService {
         }
       } else {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
-        console.log(`Now it's ${this.currentPlayer}'s turn`);
-        console.log(this.gameMode);
+       
 
 
         if (this.currentPlayer === 'O' && this.gameMode === 'human-vs-ai') {
@@ -56,13 +54,12 @@ export class GameService {
         }
       }
     } else {
-      console.log(`Invalid move attempted at (${row}, ${col})`);
+      this.toast.warning(`Invalid move`)
     }
   }
 
   aiMove(): void {
     if (this.gameOver || (this.currentPlayer !== 'O' && this.gameMode!=='ai-vs-ai') ) {
-      console.log('returned');
        //if gameover or current player is X
       return;
     }
@@ -161,7 +158,6 @@ export class GameService {
     const startTime = performance.now();
     const timeLimit = 4200; // 2.2 seconds time limit
 
-    console.log("Starting Iterative Deepening Search");
 
     while (true) {
       const currentTime = performance.now();
@@ -170,22 +166,18 @@ export class GameService {
         break;
       }
 
-      console.log(`Searching at depth: ${depth}`);
 
       const [move, _] = this.alphaBetaPruning(this.board, depth, -Infinity, Infinity, true);
       if (move) {
-        console.log(`Best move found at depth ${depth}: ${move}`);
         bestMove = move;
       }
 
       if (this.gameOver || depth >= difficulty) {
-        console.log(`Stopping search at depth ${depth}`);
         break;
       }
       depth++;
     }
 
-    console.log("Finished Iterative Deepening Search");
 
     return bestMove;
   }
@@ -193,7 +185,6 @@ export class GameService {
   alphaBetaPruning(board: string[][], depth: number, alpha: number, beta: number, maximizingPlayer: boolean): [[number, number] | null, number] {
     if (depth === 0 || this.isGameOver(board)) {
       const evalScore = this.evaluateBoard(board);
-      console.log(`Depth: ${depth}, Board evaluated with score: ${evalScore}`);
       return [null, evalScore];
     }
 
@@ -208,17 +199,14 @@ export class GameService {
         const [_, evalScore] = this.alphaBetaPruning(board, depth - 1, alpha, beta, false);
         board[row][col] = '';
 
-        console.log(`Maximizing player, Depth: ${depth}, Evaluating move: ${move}, Eval score: ${evalScore}`);
 
         if (evalScore > maxEval) {
           maxEval = evalScore;
           bestMove = move;
-          console.log(`New best move for maximizing player: ${bestMove} with score ${maxEval}`);
         }
 
         alpha = Math.max(alpha, evalScore);
         if (beta <= alpha) {
-          console.log("Alpha cutoff");
           break; // Beta cutoff
         }
       }
@@ -231,17 +219,14 @@ export class GameService {
         const [_, evalScore] = this.alphaBetaPruning(board, depth - 1, alpha, beta, true);
         board[row][col] = '';
 
-        console.log(`Minimizing player, Depth: ${depth}, Evaluating move: ${move}, Eval score: ${evalScore}`);
 
         if (evalScore < minEval) {
           minEval = evalScore;
           bestMove = move;
-          console.log(`New best move for minimizing player: ${bestMove} with score ${minEval}`);
         }
 
         beta = Math.min(beta, evalScore);
         if (beta <= alpha) {
-          console.log("Beta cutoff");
           break; // Alpha cutoff
         }
       }

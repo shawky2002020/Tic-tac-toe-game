@@ -3,6 +3,39 @@
 
 body{
   background: #000;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+.page{
+  height: 100%;
+}
 
+img{
+  object-fit: cover;
+  height:120%;
+  width: 99%;
+  position: absolute;
+  z-index: -3;
+}
+
+.page::before{
+  height: 122%;
+  width: 100.5%;
+  content: '';
+  z-index: -2;
+  /* background: #0f68b1a0; */
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.24) 0%, #0F67B1 79%); 
+   inset: 0;
+  position: absolute;
+
+}
+
+h1{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem;
+  position: relative;
+  text-align: center;
+  z-index:2;
+  color: #e7f0f7;
 }

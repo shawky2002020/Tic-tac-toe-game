@@ -1,12 +1,12 @@
-
-<ng-container  *ngIf="bool; else elseTemplate">
+<!-- <ng-container  *ngIf="bool; else elseTemplate"> -->
   <app-mode class="try"
   (modeclicked)="modesave($event)" 
    ></app-mode>
-</ng-container>
-<ng-template #elseTemplate>
+<!-- </ng-container> -->
+<!-- <ng-template #elseTemplate> -->
   <app-difficulty *ngIf="diffbool" (diffclicked)="togglediff()"></app-difficulty>
 
-</ng-template>
+<!-- </ng-template> -->
+
 
 
