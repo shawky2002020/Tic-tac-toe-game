@@ -20,7 +20,18 @@ import { ToastrService } from 'ngx-toastr';
   ],
 })
 export class BoardComponent {
-  constructor(public gameService: GameService, private toastr: ToastrService) {}
+  constructor(public gameService: GameService, private toastr: ToastrService) {
+    if (gameService.gameMode !== 'ai-vs-ai') {
+      setTimeout(() => {
+        this.toastr.info(`To win, get 4 in a row (horizontally, vertically, or diagonally).`, `Rules`, {
+          timeOut: 7000,
+          positionClass: 'toast-bottom-center',
+        });
+      }, 1000);
+    }}
+      
+    
+  
   private notificationShown = false;
   ngOnInit(): void {
     this.startNewGame();
@@ -71,11 +82,11 @@ export class BoardComponent {
       }, 4000);
     }
     this.notificationShown = true;
-
   }
 
   startNewGame(): void {
     this.notificationShown = false;
+    this.toastr.clear();
     this.gameService.resetGame();
     if (this.gameService.gameMode === 'ai-vs-ai') {
       setTimeout(() => {
@@ -105,5 +116,8 @@ export class BoardComponent {
           }
         }
       }
+  }
+  trackByCell(index: number, cell: any): any {
+    return index; // or use a unique identifier if available
   }
 }

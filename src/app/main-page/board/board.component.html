@@ -16,17 +16,17 @@
 
 <div class="game-board">
   <div *ngFor="let row of gameService.board; let i = index">
-    <div
-      *ngFor="let cell of row; let j = index"
-      class="cell"
-      (click)="onCellClick(i, j)"
-    >
-      <!-- Render the icons conditionally inside the single cell element -->
-      <i style="color: #001f3f;" class="fas fa-times" *ngIf="cell === 'X'" ></i> <!-- X -->
-      <i style="color: rgba(12,82,142,1);" class="far fa-circle" *ngIf="cell === 'O'" ></i> <!-- O -->
+    <div *ngFor="let cell of row; let j = index; trackBy: trackByCell">
+      <app-cell 
+        [value]="cell"
+        [row]="i"
+        [col]="j"
+        (cellClicked)="onCellClick(i, j)">
+      </app-cell>
     </div>
   </div>
 </div>
+
 
 <div class="game-status">
   <p >Current Player: {{ gameService.currentPlayer }}</p>

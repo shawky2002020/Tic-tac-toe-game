@@ -11,14 +11,14 @@ body{
 
 img{
   object-fit: cover;
-  height:120%;
+  height:138%;
   width: 99%;
   position: absolute;
   z-index: -3;
 }
 
 .page::before{
-  height: 122%;
+  height: 140%;
   width: 100.5%;
   content: '';
   z-index: -2;

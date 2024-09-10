@@ -1,3 +1,4 @@
-<div class="cell" *ngIf="gameservice.gameMode!=='ai-vs-ai' " (click)="onCellClick()">
-  {{ value }}
+<div class="cell" (click)="onCellClick()">
+  <div *ngIf="value === 'X'" class="x-marker"></div>
+  <div *ngIf="value === 'O'" class="o-marker"></div>
 </div>
