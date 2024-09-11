@@ -73,57 +73,38 @@ h4 span{
 
 @media (max-width: 768px) {
   .game-board {
-    grid-template-columns: repeat(7, 40px);
-    grid-template-rows: repeat(7, 40px);
+    grid-template-columns: repeat(7, 60px);
+    grid-template-rows: repeat(7, 60px);
   }
   .boardtry {
-    width:  70%;
+    width:  90%;
     overflow-x: hidden;
   }
 
-  .cell {
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
-  }
 
   .score h4 {
     font-size: 0.8rem;
     padding: 1rem;
   }
 
-
-  .btn-container button {
+  /* .btn-container button {
     font-size: 0.9rem;
     padding: 1.5rem 0.5rem;
-  }
-  .o-marker{
-    height: 1rem;
-    width: 1rem;
-  }
-  .x-marker {
-    position: relative;
-    width: 35px;
-    height: 35px;
-  }
+  } */
 }
 
 @media (max-width: 480px) {
   .boardtry {
-    width:  70%;
+    width:  80%;
     overflow-x: hidden;
   }
 
   .game-board {
-    grid-template-columns: repeat(7, 30px);
-    grid-template-rows: repeat(7, 30px);
+    grid-template-columns: repeat(7, 45px);
+    grid-template-rows: repeat(7, 45px);
   }
 
-  .cell {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-  }
+
 
   .btn-container button {
     width: 100%;
@@ -133,13 +114,26 @@ h4 span{
   .game-status p {
     font-size: 1rem;
   }
-  .o-marker{
-    height: 0.5rem;
-    width: 0.5rem;
+}
+@media (max-width: 370px) {
+  .boardtry {
+    width:  80%;
+    overflow-x: hidden;
   }
-  .x-marker {
-    position: relative;
-    width: 20px;
-    height: 25px;
+
+  .game-board {
+    grid-template-columns: repeat(7, 39px);
+    grid-template-rows: repeat(7, 39px);
   }
+
+ 
+  .btn-container button {
+    width: 100%;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .game-status p {
+    font-size: 1rem;
+  }
+
 }

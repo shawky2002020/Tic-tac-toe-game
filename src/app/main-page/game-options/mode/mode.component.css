@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .container {
   display: grid;
   grid-template-columns: 1fr;
@@ -15,7 +17,7 @@
   border-top-right-radius: 10px;
   color: white;
   text-align: center;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Open Sans", cursive;
   font-size: 2rem;
   padding: 20px;
 }
@@ -38,7 +40,8 @@ button {
   border: white thin;
   background: #0b487c;
   color: #e7f0f7;
-  font-family: cursive;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem;
@@ -52,7 +55,10 @@ button {
 button:hover {
   background: #0F67B1;
 }
-
+button:active{
+  background: white;
+  color: #3FA2F6;
+}
 button {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -74,11 +80,14 @@ button {
 @media (max-width: 480px) {
   .text {
     font-size: 1.2rem;
-    padding: 10px;
+    padding: 1.8rem;
   }
 
   button {
     font-size: 1rem;
-    padding: 1rem;
+    padding: 2rem;
+  }
+  .container{
+    width: 85%;
   }
 }

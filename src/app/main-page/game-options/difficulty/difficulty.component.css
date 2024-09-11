@@ -1,14 +1,16 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .container{
- display: grid;
- grid-template-rows: 1fr;
- position: relative;
- justify-content:center ;
- border-radius: 50%;
- width: 50%;
-margin: auto;
+  /* display: grid; */
+  grid-template-columns: 1fr;
+  position: relative;
+  justify-content: center;
+  padding: 1rem;
+  width: 60%;
+  margin: auto;
+  box-sizing: border-box;
 }
 .text{
   background: linear-gradient(0deg, #0e5d9f 1%, #5795c8 80%);
@@ -17,8 +19,8 @@ margin: auto;
   border-top-right-radius:10px ;
   color: #e7f0f7;
   text-align: center;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.3rem;
+  font-family: "Open Sans", cursive;
+  font-size: 2rem;
   text-align: center;
   padding: 20px;
   }
@@ -36,21 +38,23 @@ margin: auto;
   }
   
   button {
-    flex: 3;
-    border: none;
-    background: #0e5d9f;
+    border: white thin;
+    background: #0b487c;
     color: #e7f0f7;
-    font-family: cursive;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
     font-size: 1.5rem;
-    transition: flex 0.2s ease, background-color 0.2s ease, color 0.2s ease, padding 0.2s ease, transform 0.2s ease, border 0.2s ease;
+    text-align: center;
+    padding: 1rem;
+    transition-property: background-color, color, padding, transform, border;
     cursor: pointer;
-    padding: 1rem 0;
+    width: 100%;
+    margin: 1px 0;
+  
   }
   
   button:hover {
     background: #0F67B1;
-    border-bottom: solid 1px #e7f0f7;
-    flex: 5; /* This increases the flex-grow value on hover */
   }
   
 
@@ -62,6 +66,34 @@ button:active{
 button{
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;}
+
+  @media (max-width: 768px) {
+    .text {
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+  
+    button {
+      font-size: 1.2rem;
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text {
+      font-size: 1.2rem;
+      padding: 1.8rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 2rem;
+    }
+    .container{
+      width: 85%;
+    }
+  }
+  
 
 
 

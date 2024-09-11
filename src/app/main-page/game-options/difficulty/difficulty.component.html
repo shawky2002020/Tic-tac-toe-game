@@ -1,23 +1,39 @@
 <div *ngIf="true" @fadeIn>
   <div *ngIf="gameservice.gameMode === 'ai-vs-ai'">
-    <div class="container" *ngIf="!gameservice.aiDifficultyPlayerX && !bool" @fadeIn>
+    <div
+      class="container"
+      *ngIf="!bool"
+      @fadeIn
+    >
       <div class="text">Choose Difficulty of Player X</div>
-        <div class="button-container">
-          <button (click)="gameservice.aiDifficultyPlayerX = 0;bool=true">Easy</button>
-          <button (click)="gameservice.aiDifficultyPlayerX = 1">Medium</button>
-          <!-- <button (click)="gameservice.aiDifficultyPlayerX=1">Hard      </button> -->
-          <button (click)="gameservice.aiDifficultyPlayerX = 3">
-            Impossible
-          </button>
-        </div>
+      <div class="button-container">
+        <button (click)="gameservice.aiDifficultyPlayerX = 0; bool = true">
+          Easy
+        </button>
+        <button (click)="gameservice.aiDifficultyPlayerX = 1;bool = true">Medium</button>
+        <!-- <button (click)="gameservice.aiDifficultyPlayerX=1">Hard      </button> -->
+        <button (click)="gameservice.aiDifficultyPlayerX = 3;bool = true">
+          Impossible
+        </button>
+      </div>
     </div>
-    <div class="container" *ngIf="gameservice.aiDifficultyPlayerX || bool " @fadeIn>
+    <div
+      class="container"
+      *ngIf="bool"
+      @fadeIn
+    >
       <div class="text">Choose Difficulty of Player O</div>
       <a routerLink="/game">
         <div class="button-container">
-          <button (click)="gameservice.aiDifficultyPlayerO = 0">Easy</button>
-          <button (click)="gameservice.aiDifficultyPlayerO = 1">Medium</button>
-          <button (click)="gameservice.aiDifficultyPlayerO = 3"> Impossible</button>
+          <button (click)="gameservice.aiDifficultyPlayerO = 0; bool = false">
+            Easy
+          </button>
+          <button (click)="gameservice.aiDifficultyPlayerO = 1; bool = false">
+            Medium
+          </button>
+          <button (click)="gameservice.aiDifficultyPlayerO = 3; bool = false">
+            Impossible
+          </button>
         </div>
       </a>
     </div>
@@ -34,10 +50,5 @@
         </button>
       </a>
     </div>
-    
   </div>
 </div>
-
-
-
-

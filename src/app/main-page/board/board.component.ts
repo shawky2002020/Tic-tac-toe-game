@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/ai.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
+import { Init } from 'v8';
 
 @Component({
   selector: 'app-board',
@@ -19,8 +20,35 @@ import { ToastrService } from 'ngx-toastr';
     ]),
   ],
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
+ 
+  
   constructor(public gameService: GameService, private toastr: ToastrService) {
+    const savedGameMode = localStorage.getItem('gamemode');
+    const savedPlayerXDifficulty = parseInt(localStorage.getItem('playerXDifficulty') || '0', 10);
+    const savedPlayerODifficulty = parseInt(localStorage.getItem('playerODifficulty') || '0', 10);
+    const savedXScore = parseInt(localStorage.getItem('xScore') || '0', 10);
+    const savedOScore = parseInt(localStorage.getItem('oScore') || '0', 10);
+    // Restore game mode and difficulties if they exist
+    if (savedGameMode) {
+      this.gameService.gameMode = savedGameMode;
+    }
+    this.gameService.aiDifficultyPlayerX = savedPlayerXDifficulty;
+    this.gameService.aiDifficultyPlayerO = savedPlayerODifficulty;
+    this.gameService.Xscore = savedXScore;
+    this.gameService.Oscore = savedOScore;
+
+    // Store the current game mode and difficulties in local storage
+    if (this.gameService.gameMode) {
+      localStorage.setItem('gamemode', this.gameService.gameMode);
+    }
+    localStorage.setItem('playerXDifficulty', this.gameService.aiDifficultyPlayerX.toString());
+    localStorage.setItem('playerODifficulty', this.gameService.aiDifficultyPlayerO.toString());
+    localStorage.setItem('xScore', this.gameService.Xscore.toString());
+    localStorage.setItem('oScore', this.gameService.Oscore.toString());
+
+
+
     if (gameService.gameMode !== 'ai-vs-ai') {
       setTimeout(() => {
         this.toastr.info(`To win, get 4 in a row (horizontally, vertically, or diagonally).`, `Rules`, {
@@ -28,7 +56,10 @@ export class BoardComponent {
           positionClass: 'toast-bottom-center',
         });
       }, 1000);
-    }}
+    }
+
+ 
+  }
       
     
   
@@ -37,6 +68,8 @@ export class BoardComponent {
     this.startNewGame();
   }
   displaywon() {
+    localStorage.setItem('xScore', this.gameService.Xscore.toString());
+    localStorage.setItem('oScore', this.gameService.Oscore.toString());
     if (!this.notificationShown) {
       if (this.gameService.gameMode === 'human-vs-ai') {
         this.toastr.success('Congratulations genius😎', 'You won!🎉', {
@@ -60,6 +93,8 @@ export class BoardComponent {
   }
 
   displaylose() {
+    localStorage.setItem('xScore', this.gameService.Xscore.toString());
+    localStorage.setItem('oScore', this.gameService.Oscore.toString());
     if (!this.notificationShown) {
       this.toastr.error('Try again', 'You lost 😐', { progressBar: false });
       setTimeout(() => {
@@ -72,6 +107,8 @@ export class BoardComponent {
     this.notificationShown = true;
   }
   displaydraw() {
+    localStorage.setItem('xScore', this.gameService.Xscore.toString());
+    localStorage.setItem('oScore', this.gameService.Oscore.toString());
     if (!this.notificationShown) {
       this.toastr.warning(`Nice game ✔`, `Draw`, { progressBar: false });
       setTimeout(() => {
@@ -85,6 +122,8 @@ export class BoardComponent {
   }
 
   startNewGame(): void {
+    localStorage.setItem('xScore', this.gameService.Xscore.toString());
+    localStorage.setItem('oScore', this.gameService.Oscore.toString());
     this.notificationShown = false;
     this.toastr.clear();
     this.gameService.resetGame();

@@ -10,7 +10,8 @@ export class GameService {
   gameOver!: boolean;
   aiDifficultyPlayerX!: number ;
   aiDifficultyPlayerO!: number;
-  gameMode: string= 'human-vs-human';
+  // gameMode: string= 'human-vs-human';
+  gameMode!: string;
   displayxo:boolean=true;
   Xscore:number=0;
   Oscore:number=0;
@@ -23,8 +24,8 @@ export class GameService {
     this.board = Array(7).fill(null).map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
-    this.aiDifficultyPlayerO =0;
-    this.aiDifficultyPlayerX=0; // Default AI difficulty for player X
+    // this.aiDifficultyPlayerO =3;
+    // this.aiDifficultyPlayerX=3; // Default AI difficulty for player X
     // this.gameMode = 'human-vs-human'; // Default game mode
   }
 
