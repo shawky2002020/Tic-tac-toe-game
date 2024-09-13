@@ -18,7 +18,14 @@ export class CellComponent {
       this.cellClicked.emit();
     }
     else{
-      this.toast.warning(`Choose empty cell`,`Invalid move`)
+      this.toast.warning(`Choose empty cell`,`Invalid move`,{
+        timeOut:1000,
+        positionClass:'toast-bottom-center',
+         toastClass: 'toast-shake'
+
+
+
+      })
     }
   }
 }

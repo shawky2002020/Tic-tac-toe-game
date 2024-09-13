@@ -21,7 +21,13 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class DifficultyComponent {
   constructor(public gameservice:GameService){
     gameservice.resetGame();
+    const savedPlayerXDifficulty = parseInt(localStorage.getItem('playerXDifficulty') || '0', 10);
+    const savedPlayerODifficulty = parseInt(localStorage.getItem('playerODifficulty') || '0', 10);
+    this.gameservice.aiDifficultyPlayerX = savedPlayerXDifficulty;
+    this.gameservice.aiDifficultyPlayerO = savedPlayerODifficulty;
+    console.log(`diff constuctor`);
     
+
   }
   bool=false;
   @Output() diffclicked = new EventEmitter<void>();
@@ -29,7 +35,14 @@ export class DifficultyComponent {
   displayXO(){
     this.gameservice.displayxo=false;
   }
+  
+  save(diff1:number,diff2?:number){
+    this.gameservice.saveDifficulty(diff1,diff2);
+    this.bool=true;
+  }
 
+
+  
 }
 
 

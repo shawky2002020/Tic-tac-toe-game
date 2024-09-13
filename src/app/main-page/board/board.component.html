@@ -1,54 +1,83 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
 
-<link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+  rel="stylesheet"
+/>
 <div class="boardtry" *ngIf="true" @fadeIn>
-<div class="game-options ">
-  <div class="btn-container">
-    <button (click)="startNewGame()"> New Game</button>
-  </div>
-  <div class="score">
-    <h4>Player X :<span>{{gameService.Xscore}}</span></h4>
-    <h4>Player O :<span>{{gameService.Oscore}}</span></h4>
-  </div>
-</div>
-
-<div class="game-board">
-  <div *ngFor="let row of gameService.board; let i = index">
-    <div *ngFor="let cell of row; let j = index; trackBy: trackByCell">
-      <app-cell 
-        [value]="cell"
-        [row]="i"
-        [col]="j"
-        (cellClicked)="onCellClick(i, j)">
-      </app-cell>
+  <div class="game-options">
+    <div class="btn-container">
+      <div *ngIf="gameService.gameOver">
+        <button
+          (click)="startNewGame()"
+          [ngClass]="{ 'pulse-button': gameService.gameOver }"
+        >
+          New Game
+        </button>
+      </div>
+      <div *ngIf="!gameService.gameOver">
+        <button
+          style="
+            padding: 1rem 0.5rem;
+            border-radius: 0;
+            transform: scale(1.2);
+            border-radius: 0.1rem;
+          "
+          (click)="Reset()"
+          [ngClass]="{ 'pulse-button': gameService.gameOver }"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+    <div class="score">
+      <h4>
+        Player X :<span>{{ gameService.Xscore }}</span>
+      </h4>
+      <h4>
+        Player O :<span>{{ gameService.Oscore }}</span>
+      </h4>
     </div>
   </div>
-</div>
 
-
-<div class="game-status">
-  <p >Current Player: {{ gameService.currentPlayer }}</p>
-  <div *ngIf="true" @fadeIn>
-  <div *ngIf="gameService.gameOver" style="color: #FDFFE2 ;">
-    <div *ngIf="gameService.gameMode=='human-vs-ai' ">
-    {{ gameService.currentPlayer === "X" ? displaywon() : displaylose() }} 
+  <div class="game-board">
+    <div *ngFor="let row of gameService.board; let i = index">
+      <div *ngFor="let cell of row; let j = index; trackBy: trackByCell">
+        <app-cell
+          [value]="cell"
+          [row]="i"
+          [col]="j"
+          (cellClicked)="onCellClick(i, j)"
+        >
+        </app-cell>
+      </div>
     </div>
-
-    <div *ngIf="gameService.gameMode!=='human-vs-ai' ">
-      {{displaywon()}}
-    </div>
-    
   </div>
-  
-</div>
-  <p
-    *ngIf="
-      !gameService.gameOver && gameService.getAvailableMoves().length === 0
-    "
-  >
-    {{displaydraw()}}
-  </p>
-</div>
+
+  <div class="game-status">
+    <p>Current Player: {{ gameService.currentPlayer }}</p>
+    <div *ngIf="true" @fadeIn>
+      <div *ngIf="gameService.gameOver" style="color: #fdffe2">
+        <div *ngIf="gameService.gameMode == 'human-vs-ai'">
+          {{ gameService.currentPlayer === "X" ? displaywon() : displaylose() }}
+        </div>
+
+        <div *ngIf="gameService.gameMode !== 'human-vs-ai'">
+          {{ displaywon() }}
+        </div>
+      </div>
+    </div>
+    <p
+      *ngIf="
+        !gameService.gameOver && gameService.getAvailableMoves().length === 0
+      "
+    >
+      {{ displaydraw() }}
+    </p>
+  </div>
 </div>

@@ -2,26 +2,51 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
   board!: string[][];
   currentPlayer!: string;
   gameOver!: boolean;
   aiDifficultyPlayerX!: number ;
-  aiDifficultyPlayerO!: number;
-  // gameMode: string= 'human-vs-human';
+  aiDifficultyPlayerO!: number ;
   gameMode!: string;
-  displayxo:boolean=true;
-  Xscore:number=0;
-  Oscore:number=0;
+  displayxo: boolean = true;
+  Xscore: number = 0;
+  Oscore: number = 0;
 
- 
+  constructor(private toast: ToastrService) {
+    const savedPlayerXDifficulty = parseInt(localStorage.getItem('playerXDifficulty') || '0',10);
+    const savedPlayerODifficulty = parseInt(localStorage.getItem('playerODifficulty') || '0', 10);
+    const savedmode=localStorage.getItem('mode');
+    this.aiDifficultyPlayerO=savedPlayerODifficulty;
+    this.aiDifficultyPlayerX=savedPlayerXDifficulty;
+    console.log(savedmode);
+    
+    this.gameMode=savedmode || 'human-vs-human';
+    console.log(this.gameMode);
+    
+    }
 
-  constructor(private toast:ToastrService) { }
-
+    saveDifficulty(diff1:number,diff2?:number){
+      this.aiDifficultyPlayerO = diff1;
+      this.aiDifficultyPlayerX=diff2 || 0;
+      console.log(`save in aiservice`);
+      
+      console.log(this.aiDifficultyPlayerO);
+      
+      localStorage.setItem('playerXDifficulty', this.aiDifficultyPlayerX.toString());
+      localStorage.setItem('playerODifficulty', this.aiDifficultyPlayerO.toString());
+    }
+    saveMode(mode:string){
+      this.gameMode=mode;
+      localStorage.setItem('mode',this.gameMode)
+    }
+  
   resetGame(): void {
-    this.board = Array(7).fill(null).map(() => Array(7).fill(''));
+    this.board = Array(7)
+      .fill(null)
+      .map(() => Array(7).fill(''));
     this.currentPlayer = 'X';
     this.gameOver = false;
     // this.aiDifficultyPlayerO =3;
@@ -34,19 +59,15 @@ export class GameService {
       this.board[row][col] = this.currentPlayer;
 
       if (this.isWinningMove(this.board, this.currentPlayer)) {
-        
         this.gameOver = true;
         //update score
-        if(this.currentPlayer==='X'){
+        if (this.currentPlayer === 'X') {
           this.Xscore++;
-        }
-        else if(this.currentPlayer==='O'){
+        } else if (this.currentPlayer === 'O') {
           this.Oscore++;
         }
       } else {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
-       
-
 
         if (this.currentPlayer === 'O' && this.gameMode === 'human-vs-ai') {
           setTimeout(() => this.aiMove(), 500);
@@ -55,16 +76,18 @@ export class GameService {
         }
       }
     } else {
-      this.toast.warning(`Invalid move`)
+      // this.toast.warning(`Invalid move`);
     }
   }
 
   aiMove(): void {
-    if (this.gameOver || (this.currentPlayer !== 'O' && this.gameMode!=='ai-vs-ai') ) {
-       //if gameover or current player is X
+    if (
+      this.gameOver ||
+      (this.currentPlayer !== 'O' && this.gameMode !== 'ai-vs-ai')
+    ) {
+      //if gameover or current player is X
       return;
     }
-    
 
     let bestMove: [number, number] | null = null;
 
@@ -73,12 +96,10 @@ export class GameService {
 
     if (!bestMove) {
       // Use iterative deepening search if no immediate move found
-      if(this.currentPlayer==='O')
+      if (this.currentPlayer === 'O')
         bestMove = this.iterativeDeepeningSearch(this.aiDifficultyPlayerO);
-      if(this.currentPlayer==='X')
+      if (this.currentPlayer === 'X')
         bestMove = this.iterativeDeepeningSearch(this.aiDifficultyPlayerX);
-
-    
     }
 
     if (bestMove) {
@@ -132,7 +153,14 @@ export class GameService {
     return false;
   }
 
-  checkLine(board: string[][], player: string, row: number, col: number, dRow: number, dCol: number): boolean {
+  checkLine(
+    board: string[][],
+    player: string,
+    row: number,
+    col: number,
+    dRow: number,
+    dCol: number
+  ): boolean {
     for (let i = 0; i < 4; i++) {
       if (board[row + i * dRow][col + i * dCol] !== player) {
         return false;
@@ -159,16 +187,20 @@ export class GameService {
     const startTime = performance.now();
     const timeLimit = 4200; // 2.2 seconds time limit
 
-
     while (true) {
       const currentTime = performance.now();
       if (currentTime - startTime > timeLimit) {
-        console.error("Time limit exceeded, breaking out of search");
+        console.error('Time limit exceeded, breaking out of search');
         break;
       }
 
-
-      const [move, _] = this.alphaBetaPruning(this.board, depth, -Infinity, Infinity, true);
+      const [move, _] = this.alphaBetaPruning(
+        this.board,
+        depth,
+        -Infinity,
+        Infinity,
+        true
+      );
       if (move) {
         bestMove = move;
       }
@@ -179,11 +211,16 @@ export class GameService {
       depth++;
     }
 
-
     return bestMove;
   }
 
-  alphaBetaPruning(board: string[][], depth: number, alpha: number, beta: number, maximizingPlayer: boolean): [[number, number] | null, number] {
+  alphaBetaPruning(
+    board: string[][],
+    depth: number,
+    alpha: number,
+    beta: number,
+    maximizingPlayer: boolean
+  ): [[number, number] | null, number] {
     if (depth === 0 || this.isGameOver(board)) {
       const evalScore = this.evaluateBoard(board);
       return [null, evalScore];
@@ -197,9 +234,14 @@ export class GameService {
       for (const move of availableMoves) {
         const [row, col] = move;
         board[row][col] = 'O';
-        const [_, evalScore] = this.alphaBetaPruning(board, depth - 1, alpha, beta, false);
+        const [_, evalScore] = this.alphaBetaPruning(
+          board,
+          depth - 1,
+          alpha,
+          beta,
+          false
+        );
         board[row][col] = '';
-
 
         if (evalScore > maxEval) {
           maxEval = evalScore;
@@ -217,9 +259,14 @@ export class GameService {
       for (const move of availableMoves) {
         const [row, col] = move;
         board[row][col] = 'X';
-        const [_, evalScore] = this.alphaBetaPruning(board, depth - 1, alpha, beta, true);
+        const [_, evalScore] = this.alphaBetaPruning(
+          board,
+          depth - 1,
+          alpha,
+          beta,
+          true
+        );
         board[row][col] = '';
-
 
         if (evalScore < minEval) {
           minEval = evalScore;
@@ -238,83 +285,96 @@ export class GameService {
   evaluateBoard(board: string[][]): number {
     // Initialize the score for the board
     let score = 0;
-    
+
     // Check if there's an immediate winning move for either player
     if (this.isWinningMove(board, 'O')) return 100000; // High value for AI winning
     if (this.isWinningMove(board, 'X')) return -100000; // Low value for Player winning
-  
+
     // Evaluate control of the board for both players and adjust the score
     score += this.evaluateBoardControl(board, 'O'); // Add points for AI control
     score -= this.evaluateBoardControl(board, 'X'); // Subtract points for Player control
-  
+
     return score; // Return the final evaluation score for the board
   }
-  
+
   evaluateBoardControl(board: string[][], player: string): number {
     // Initialize the score for the player's board control
     let score = 0;
-  
+
     // Heuristic: Check control of the center, corners, and edges
     const center = board[3][3];
     const corners = [board[0][0], board[0][6], board[6][0], board[6][6]];
     const edges = [
-      board[0][3], board[3][0], board[3][6], board[6][3], // Mid edges
-      board[1][1], board[1][5], board[5][1], board[5][5]  // Near corners
+      board[0][3],
+      board[3][0],
+      board[3][6],
+      board[6][3], // Mid edges
+      board[1][1],
+      board[1][5],
+      board[5][1],
+      board[5][5], // Near corners
     ];
-  
+
     // Add points if the player controls the center, corners, or edges
     if (center === player) score += 100;
-    corners.forEach(corner => {
+    corners.forEach((corner) => {
       if (corner === player) score += 60;
     });
-    edges.forEach(edge => {
+    edges.forEach((edge) => {
       if (edge === player) score += 40;
     });
-  
+
     // Add points based on the player's control of rows, columns, and diagonals
     score += this.evaluateLines(board, player);
-  
+
     return score; // Return the score for the player's board control
   }
-  
+
   evaluateLines(board: string[][], player: string): number {
     // Initialize the score for the player's control of lines
     let score = 0;
     const size = 7;
     const winCondition = 4;
-  
+
     // Evaluate horizontal lines
     for (let row = 0; row < size; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, 0, 1);
       }
     }
-  
+
     // Evaluate vertical lines
     for (let col = 0; col < size; col++) {
       for (let row = 0; row <= size - winCondition; row++) {
         score += this.evaluateLine(board, player, row, col, 1, 0);
       }
     }
-  
+
     // Evaluate diagonal lines (top-left to bottom-right)
     for (let row = 0; row <= size - winCondition; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, 1, 1);
       }
     }
-  
+
     // Evaluate diagonal lines (top-right to bottom-left)
     for (let row = winCondition - 1; row < size; row++) {
       for (let col = 0; col <= size - winCondition; col++) {
         score += this.evaluateLine(board, player, row, col, -1, 1);
       }
     }
-  
+
     return score; // Return the total score for the player's control of lines
   }
-  
-  evaluateLine(board: string[][], player: string, row: number, col: number, dRow: number, dCol: number): number {
+
+  evaluateLine(
+    board: string[][],
+    player: string,
+    row: number,
+    col: number,
+    dRow: number,
+    dCol: number
+  ): number {
     let countPlayer = 0;
     let countOpponent = 0;
     let countEmpty = 0;
@@ -323,10 +383,10 @@ export class GameService {
     const opponent = player === 'O' ? 'X' : 'O';
 
     for (let i = 0; i < 4; i++) {
-        const current = board[row + i * dRow][col + i * dCol];
-        if (current === player) countPlayer++;
-        if (current === '') countEmpty++;
-        if (current === opponent) countOpponent++;
+      const current = board[row + i * dRow][col + i * dCol];
+      if (current === player) countPlayer++;
+      if (current === '') countEmpty++;
+      if (current === opponent) countOpponent++;
     }
 
     // Block immediate opponent threats with higher priority
@@ -340,10 +400,13 @@ export class GameService {
     if (countOpponent === 2 && countEmpty === 2) return -800; // Block opponent's potential setup
 
     return 0;
-}
+  }
 
-  
   isGameOver(board: string[][]): boolean {
-    return this.getAvailableMoves().length === 0 || this.isWinningMove(board, 'O') || this.isWinningMove(board, 'X');
+    return (
+      this.getAvailableMoves().length === 0 ||
+      this.isWinningMove(board, 'O') ||
+      this.isWinningMove(board, 'X')
+    );
   }
 }

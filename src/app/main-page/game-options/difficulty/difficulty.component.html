@@ -7,12 +7,12 @@
     >
       <div class="text">Choose Difficulty of Player X</div>
       <div class="button-container">
-        <button (click)="gameservice.aiDifficultyPlayerX = 0; bool = true">
+        <button (click)="save(0)">
           Easy
         </button>
-        <button (click)="gameservice.aiDifficultyPlayerX = 1;bool = true">Medium</button>
+        <button (click)="save(1)">Medium</button>
         <!-- <button (click)="gameservice.aiDifficultyPlayerX=1">Hard      </button> -->
-        <button (click)="gameservice.aiDifficultyPlayerX = 3;bool = true">
+        <button (click)="save(3)">
           Impossible
         </button>
       </div>
@@ -25,13 +25,13 @@
       <div class="text">Choose Difficulty of Player O</div>
       <a routerLink="/game">
         <div class="button-container">
-          <button (click)="gameservice.aiDifficultyPlayerO = 0; bool = false">
+          <button (click)="save(0)">
             Easy
           </button>
-          <button (click)="gameservice.aiDifficultyPlayerO = 1; bool = false">
+          <button (click)="save(1)">
             Medium
           </button>
-          <button (click)="gameservice.aiDifficultyPlayerO = 3; bool = false">
+          <button (click)="save(3)">
             Impossible
           </button>
         </div>
@@ -43,9 +43,9 @@
     <div class="container">
       <div class="text">Choose Difficulty of AI</div>
       <a routerLink="/game" class="button-container">
-        <button (click)="gameservice.aiDifficultyPlayerO = 0">Easy</button>
-        <button (click)="gameservice.aiDifficultyPlayerO = 1">Medium</button>
-        <button (click)="gameservice.aiDifficultyPlayerO = 3">
+        <button (click)="save(0)">Easy</button>
+        <button (click)="save(2)">Medium</button>
+        <button (click)="save(3)">
           Impossible
         </button>
       </a>

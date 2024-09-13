@@ -1,6 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
-
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 body{
   background: #000;
   overflow-x: hidden;
@@ -16,7 +16,103 @@ img{
   position: absolute;
   z-index: -3;
 }
+.toast-bottom-full-width{
+  position: fixed !important;
+  bottom: 50% !important; /* Align to the bottom of the screen */
+  left: 50% !important;
+  transform: translateX(-50%); /* Adjust to truly center */
+  width: 70% !important;
+  margin: auto !important;
 
+}
+@media (max-width: 750px) {
+  .toast-bottom-full-width{
+    width: 90% !important;
+
+}
+}
+
+
+
+.toast-bottom-center .toast-message,
+.toast-bottom-center .toast-title,
+.toast-bottom-full-width .toast-title
+.toast-bottom-full-width .toast-message
+{
+  text-align: center; /* Center text horizontally */
+  padding:0.2rem 1rem;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.toast-bottom-center .toast-title,
+.toast-bottom-full-width .toast-title,
+.toast-bottom-full-width .toast-message {
+  text-align: center; /* Center text horizontally */
+  padding: 1rem;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: normal;
+}
+.toast-zoom {
+  animation: zoomInOut 1s ease-in-out;
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1); opacity: 1; }
+  80% { transform: scale(.5); opacity: .5; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.toast-shake {
+  animation: shake 0.5s ease-in-out;
+ 
+}
+.toast-warning,
+.toast-error,
+.toast-success
+{
+  /* white-space: nowrap !important; */
+  background-image:none !important;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+.toast-wobble {
+  animation: wobble 1s ease-in-out;
+}
+
+@keyframes wobble {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(15deg); }
+  30% { transform: rotate(-10deg); }
+  45% { transform: rotate(5deg); }
+  60% { transform: rotate(-5deg); }
+  75% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+.toast-pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+.toast-icon {
+  background-repeat: no-repeat;
+  background-position: center; /* Ensure the icon stays centered */
+  background-size: contain; /* Make sure the icon scales properly */
+}
 .page::before{
   height: 140%;
   width: 100.5%;

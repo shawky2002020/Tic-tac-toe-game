@@ -3,11 +3,11 @@
 <div class="container" *ngIf="true" @fadeIn>
   <div class="text">Choose Mode</div> 
     <a routerLink="/difficulty" class="button-container">
-    <button (click)="CxC()">Computer X Computer</button>
-    <button (click)="PxC()">Player X Computer</button>
+    <button (click)="save('ai-vs-ai')">Computer X Computer</button>
+    <button (click)="save('human-vs-ai')">Player X Computer</button>
   </a>
   <a routerLink="/game" class="button-container">
-    <button (click)="PxP()">Player X Player</button>
+    <button (click)="save('human-vs-human')">Player X Player</button>
   </a>
     
     

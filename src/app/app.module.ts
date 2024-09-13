@@ -38,10 +38,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-bottom-center',
+      positionClass: 'toast-bottom-full-width', // Use the custom class
       newestOnTop:false,
       preventDuplicates:true,
       progressBar: true,
+      closeButton:true
     }), // ToastrModule added
     // Other modules
     
