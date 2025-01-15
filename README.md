@@ -17,6 +17,7 @@ This project is an advanced AI-powered version of Tic Tac Toe, designed to be pl
 
 - **7x7 Grid:**  Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
 - **Unbeatable AI:** 
+
 ![AI Icon](https://img.icons8.com/ios/452/artificial-intelligence.png) 
 
 Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
