@@ -7,38 +7,39 @@
 
 ## Overview
 
+![Game Icon](https://img.icons8.com/ios/452/tic-tac-toe.png)  
 This project is an advanced AI-powered version of Tic Tac Toe, designed to be played on a 7x7 grid with the goal of forming four in a row. The AI utilizes **Alpha-Beta pruning** with **iterative deepening** to ensure unbeatable gameplay. The AI's decision-making has been enhanced to detect traps, forks, and other strategic gameplay elements to create a challenging experience for players.
 
 ---
 
 ## Features
 
-- **7x7 Grid:** Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
-- **Unbeatable AI:** Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
-- **Advanced AI Logic:** Custom heuristics for board evaluation, optimal move selection, trap detection, and fork creation.
+- **7x7 Grid:** ![Grid Icon](https://img.icons8.com/ios/452/grid.png) Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
+- **Unbeatable AI:** ![AI Icon](https://img.icons8.com/ios/452/artificial-intelligence.png) Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
+- **Advanced AI Logic:** ![Brain Icon](https://img.icons8.com/ios/452/brain.png) Custom heuristics for board evaluation, optimal move selection, trap detection, and fork creation.
 - **Multiple Game Modes:**  
-  - **Human vs. AI:** Play against the AI with adjustable difficulty levels.
-  - **AI vs. AI:** Watch two AI players battle it out.
-  - **Human vs. Human:** Play with a friend on the same device.
-- **Responsive Design:** Optimized for seamless gameplay across devices with a responsive and user-friendly interface.
-- **Difficulty Settings:** Players can adjust the AI difficulty level to match their skill.
+  - **Human vs. AI:** ![Player Icon](https://img.icons8.com/ios/452/player.png) Play against the AI with adjustable difficulty levels.
+  - **AI vs. AI:** ![AI vs AI Icon](https://img.icons8.com/ios/452/ai.png) Watch two AI players battle it out.
+  - **Human vs. Human:** ![Two Players Icon](https://img.icons8.com/ios/452/two-players.png) Play with a friend on the same device.
+- **Responsive Design:** ![Responsive Icon](https://img.icons8.com/ios/452/responsive.png) Optimized for seamless gameplay across devices with a responsive and user-friendly interface.
+- **Difficulty Settings:** ![Difficulty Icon](https://img.icons8.com/ios/452/level-up.png) Players can adjust the AI difficulty level to match their skill.
 
 ---
 
 ## AI Logic
 
-- **Alpha-Beta Pruning:** The AI uses Alpha-Beta pruning to significantly reduce the search space, ensuring faster and more efficient move evaluation.
-- **Iterative Deepening:** The AI uses iterative deepening to progressively search the game tree, providing optimal moves even at higher depths.
-- **Fork Detection & Trap Avoidance:** The AI detects potential forks and traps, strategically setting up or blocking these scenarios for a competitive game.
+- **Alpha-Beta Pruning:** ![Algorithm Icon](https://img.icons8.com/ios/452/code.png) The AI uses Alpha-Beta pruning to significantly reduce the search space, ensuring faster and more efficient move evaluation.
+- **Iterative Deepening:** ![Depth Icon](https://img.icons8.com/ios/452/algorithm.png) The AI uses iterative deepening to progressively search the game tree, providing optimal moves even at higher depths.
+- **Fork Detection & Trap Avoidance:** ![Fork Icon](https://img.icons8.com/ios/452/fork.png) The AI detects potential forks and traps, strategically setting up or blocking these scenarios for a competitive game.
 
 ---
 
 ## Game Modes and Difficulty
 
-- **Human vs AI:** Play against the AI with difficulty levels from Easy to Impossible.
-- **AI vs AI:** Watch the two AI players battle with difficulty settings that can be customized.
-- **Human vs Human:** A classic 2-player mode for local gameplay.
-- **Difficulty Levels:** Adjustable settings to tailor the AI’s strategy and move difficulty.
+- **Human vs AI:** ![Human vs AI Icon](https://img.icons8.com/ios/452/human.png) Play against the AI with difficulty levels from Easy to Impossible.
+- **AI vs AI:** ![AI vs AI Icon](https://img.icons8.com/ios/452/robot.png) Watch the two AI players battle with difficulty settings that can be customized.
+- **Human vs Human:** ![Two Players Icon](https://img.icons8.com/ios/452/two-players.png) A classic 2-player mode for local gameplay.
+- **Difficulty Levels:** ![Settings Icon](https://img.icons8.com/ios/452/settings.png) Adjustable settings to tailor the AI’s strategy and move difficulty.
 
 ---
 
