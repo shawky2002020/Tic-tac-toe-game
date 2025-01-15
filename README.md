@@ -1,27 +1,62 @@
-# Game
+# Shawky's Tic Tac Toe AI Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+**Technologies Used:**  
+`Angular`, `TypeScript`, `Alpha-Beta Pruning`, `Iterative Deepening`, `CSS3`, `HTML5`
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Overview
 
-## Code scaffolding
+This project is an advanced AI-powered version of Tic Tac Toe, designed to be played on a 7x7 grid with the goal of forming four in a row. The AI utilizes **Alpha-Beta pruning** with **iterative deepening** to ensure unbeatable gameplay. The AI's decision-making has been enhanced to detect traps, forks, and other strategic gameplay elements to create a challenging experience for players.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **7x7 Grid:** Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
+- **Unbeatable AI:** Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
+- **Advanced AI Logic:** Custom heuristics for board evaluation, optimal move selection, trap detection, and fork creation.
+- **Multiple Game Modes:**  
+  - **Human vs. AI:** Play against the AI with adjustable difficulty levels.
+  - **AI vs. AI:** Watch two AI players battle it out.
+  - **Human vs. Human:** Play with a friend on the same device.
+- **Responsive Design:** Optimized for seamless gameplay across devices with a responsive and user-friendly interface.
+- **Difficulty Settings:** Players can adjust the AI difficulty level to match their skill.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## AI Logic
 
-## Running end-to-end tests
+- **Alpha-Beta Pruning:** The AI uses Alpha-Beta pruning to significantly reduce the search space, ensuring faster and more efficient move evaluation.
+- **Iterative Deepening:** The AI uses iterative deepening to progressively search the game tree, providing optimal moves even at higher depths.
+- **Fork Detection & Trap Avoidance:** The AI detects potential forks and traps, strategically setting up or blocking these scenarios for a competitive game.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Game Modes and Difficulty
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Human vs AI:** Play against the AI with difficulty levels from Easy to Impossible.
+- **AI vs AI:** Watch the two AI players battle with difficulty settings that can be customized.
+- **Human vs Human:** A classic 2-player mode for local gameplay.
+- **Difficulty Levels:** Adjustable settings to tailor the AI’s strategy and move difficulty.
+
+---
+
+## Customization
+
+The AI’s difficulty can be adjusted by modifying the evaluation depth in the code. Lower depths make the AI less challenging, while higher depths increase the complexity. Additionally, custom heuristics can be tweaked to modify the AI’s decision-making process.
+
+---
+
+## Responsive Design
+
+The game is fully responsive and designed to work across a variety of devices, ensuring a smooth user experience on desktops, tablets, and mobile devices.
+
+---
+
+## Prerequisites
+
+- **Node.js** (LTS version recommended)
+- **Angular CLI**
+
+---
