@@ -48,17 +48,6 @@ Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its 
 
 ---
 
-## Customization
-
-The AI’s difficulty can be adjusted by modifying the evaluation depth in the code. Lower depths make the AI less challenging, while higher depths increase the complexity. Additionally, custom heuristics can be tweaked to modify the AI’s decision-making process.
-
----
-
-## Responsive Design
-
-The game is fully responsive and designed to work across a variety of devices, ensuring a smooth user experience on desktops, tablets, and mobile devices.
-
----
 
 ## Screenshots
 
