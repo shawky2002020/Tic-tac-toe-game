@@ -14,15 +14,16 @@ This project is an advanced AI-powered version of Tic Tac Toe, designed to be pl
 
 ## Features
 
-- **7x7 Grid:** ![Grid Icon](https://img.icons8.com/ios/452/grid.png) Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
-- **Unbeatable AI:** ![AI Icon](https://img.icons8.com/ios/452/artificial-intelligence.png) Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
+- **7x7 Grid:**  Expanded the traditional Tic Tac Toe grid to 7x7, increasing the complexity of the game.
+- **Unbeatable AI:** ![AI Icon](https://img.icons8.com/ios/452/artificial-intelligence.png) 
+Alpha-Beta pruning with iterative deepening ensures the AI is unbeatable at its hardest difficulty level.
 - **Advanced AI Logic:** ![Brain Icon](https://img.icons8.com/ios/452/brain.png) Custom heuristics for board evaluation, optimal move selection, trap detection, and fork creation.
 - **Multiple Game Modes:**  
-  - **Human vs. AI:** ![Player Icon](https://img.icons8.com/ios/452/player.png) Play against the AI with adjustable difficulty levels.
-  - **AI vs. AI:** ![AI vs AI Icon](https://img.icons8.com/ios/452/ai.png) Watch two AI players battle it out.
-  - **Human vs. Human:** ![Two Players Icon](https://img.icons8.com/ios/452/two-players.png) Play with a friend on the same device.
-- **Responsive Design:** ![Responsive Icon](https://img.icons8.com/ios/452/responsive.png) Optimized for seamless gameplay across devices with a responsive and user-friendly interface.
-- **Difficulty Settings:** ![Difficulty Icon](https://img.icons8.com/ios/452/level-up.png) Players can adjust the AI difficulty level to match their skill.
+  - **Human vs. AI:** Play against the AI with adjustable difficulty levels.
+  - **AI vs. AI:**  Watch two AI players battle it out.
+  - **Human vs. Human:**  Play with a friend on the same device.
+- **Responsive Design:** Optimized for seamless gameplay across devices with a responsive and user-friendly interface.
+- **Difficulty Settings:**  Players can adjust the AI difficulty level to match their skill.
 
 ---
 
