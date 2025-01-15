@@ -1,4 +1,6 @@
 # Shawky's Tic Tac Toe AI Game
+![image](https://github.com/user-attachments/assets/0c73e344-4468-44e4-bc5f-10eefb92b66d)
+
 
 **Technologies Used:**  
 `Angular`, `TypeScript`, `Alpha-Beta Pruning`, `Iterative Deepening`, `CSS3`, `HTML5`
@@ -54,6 +56,19 @@ The AI’s difficulty can be adjusted by modifying the evaluation depth in the c
 ## Responsive Design
 
 The game is fully responsive and designed to work across a variety of devices, ensuring a smooth user experience on desktops, tablets, and mobile devices.
+
+---
+
+## Screenshots
+
+Here are some screenshots of the game in action:
+
+![image](https://github.com/user-attachments/assets/a8d3de2e-cda3-46f3-a2d9-4ce5ea295c34)
+![image](https://github.com/user-attachments/assets/164ce580-b145-4275-9c7c-4787e0dd10ec)
+
+
+
+
 
 ---
 
